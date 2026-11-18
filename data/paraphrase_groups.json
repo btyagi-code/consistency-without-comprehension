@@ -1,0 +1,602 @@
+[
+  {
+    "group_id": 1,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your account has been suspended. Click here immediately to restore access.",
+      "Your account has been deactivated. Press here right away to regain entry.",
+      "Your profile has been disabled. Tap here urgently to recover your access."
+    ]
+  },
+  {
+    "group_id": 2,
+    "label": "phishing",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "We have detected unusual activity on your account. Verify your identity now.",
+      "Unusual activity has been detected on your account. Your identity must be verified now.",
+      "Your account has had unusual activity detected. Now verify who you are."
+    ]
+  },
+  {
+    "group_id": 3,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Congratulations! You have won a $1000 gift card. Claim your prize by clicking the link below.",
+      "You are the lucky winner of a $1000 gift card! Use the link below to collect your reward.",
+      "Great news — a $1000 gift card is yours! Follow the link to claim what you have won."
+    ]
+  },
+  {
+    "group_id": 4,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your password will expire in 24 hours. Update it now to avoid losing access.",
+      "Your password is set to expire within a day. Change it immediately to prevent being locked out.",
+      "In 24 hours your password expires. Reset it now or you will lose access to your account."
+    ]
+  },
+  {
+    "group_id": 5,
+    "label": "phishing",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "Your bank requires you to confirm your details to prevent your account from being closed.",
+      "To prevent account closure, your bank is requiring that your details be confirmed.",
+      "Confirmation of your details is being required by your bank to keep your account open."
+    ]
+  },
+  {
+    "group_id": 6,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Action required: Your PayPal account has been limited. Please verify your information.",
+      "Important notice: Limitations have been placed on your PayPal account. Verification of your information is needed.",
+      "Your PayPal account is now limited and requires your attention. Please confirm your details to continue."
+    ]
+  },
+  {
+    "group_id": 7,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "You have a pending package delivery. Confirm your address to receive it.",
+      "A package is awaiting delivery to you. Please verify your shipping address.",
+      "There is an outstanding parcel for you. Confirm where to send it by clicking here."
+    ]
+  },
+  {
+    "group_id": 8,
+    "label": "phishing",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "You must update your billing information or your subscription will be cancelled.",
+      "Your subscription will be cancelled unless you update your billing information.",
+      "Unless billing information is updated by you, cancellation of your subscription will occur."
+    ]
+  },
+  {
+    "group_id": 9,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Security alert: Someone tried to log into your account from an unknown device. Click to secure it.",
+      "We noticed a login attempt on your account from an unrecognized device. Please secure your account now.",
+      "An unfamiliar device attempted to access your account. Take action immediately to protect it."
+    ]
+  },
+  {
+    "group_id": 10,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your free trial has expired. Enter your credit card details to continue using the service.",
+      "The free trial period has ended. Provide your payment information to keep using the service.",
+      "Your complimentary trial is over. Submit your card details to maintain access."
+    ]
+  },
+  {
+    "group_id": 11,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your email storage is full. Click here to upgrade your mailbox.",
+      "Your inbox has reached capacity. Follow this link to expand storage.",
+      "Your mailbox is out of space. Use the link below to restore access."
+    ]
+  },
+  {
+    "group_id": 12,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your tax refund is ready. Submit your banking details.",
+      "Your refund is available. Provide bank information to receive it.",
+      "Your tax return payment is pending. Enter your account details."
+    ]
+  },
+  {
+    "group_id": 13,
+    "label": "phishing",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "Your account will be locked unless you verify your phone number.",
+      "Unless you verify your phone number, your account will be locked.",
+      "Verification of your phone number is required to prevent locking."
+    ]
+  },
+  {
+    "group_id": 14,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "We could not process your payment. Update your card now.",
+      "Your payment failed. Please update your billing information.",
+      "There was a problem charging your card. Add new details now."
+    ]
+  },
+  {
+    "group_id": 15,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "You received a secure document. Open the link to view.",
+      "A protected file was sent to you. Click to access it.",
+      "A confidential document is waiting. Use the link to open it."
+    ]
+  },
+  {
+    "group_id": 16,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your payroll deposit failed. Verify your account immediately.",
+      "We could not send your salary. Confirm your banking information.",
+      "Your paycheck was not processed. Update your details now."
+    ]
+  },
+  {
+    "group_id": 17,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "A new device accessed your account. Secure it now.",
+      "Your account was opened from another device. Protect it immediately.",
+      "An unknown device logged into your account. Take action now."
+    ]
+  },
+  {
+    "group_id": 18,
+    "label": "phishing",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "Your invoice is overdue. Pay now to avoid penalties.",
+      "To avoid penalties, your overdue invoice must be paid now.",
+      "Payment is required now to avoid penalties on your overdue invoice."
+    ]
+  },
+  {
+    "group_id": 19,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your files will be deleted unless you confirm your account.",
+      "Confirm your account or your files will be removed.",
+      "You must verify your account to prevent file deletion."
+    ]
+  },
+  {
+    "group_id": 20,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "You have been selected for a remote job. Send your details.",
+      "You qualify for a work-from-home job. Provide your information.",
+      "A remote opportunity is available. Share your details now."
+    ]
+  },
+  {
+    "group_id": 21,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your library books are due next week. You can renew them online if needed.",
+      "This is a reminder that your library items are due next week. Online renewal is available.",
+      "Your borrowed books should be returned next week, or you may renew them through the library portal."
+    ]
+  },
+  {
+    "group_id": 22,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your course registration has been completed successfully.",
+      "Your class enrollment was processed successfully.",
+      "Your registration for the course has been confirmed."
+    ]
+  },
+  {
+    "group_id": 23,
+    "label": "legitimate",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "The office will be closed on Monday for the holiday.",
+      "On Monday, the office will be closed because of the holiday.",
+      "Because of the holiday, the office will not be open on Monday."
+    ]
+  },
+  {
+    "group_id": 24,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your package was delivered today at 2:15pm.",
+      "Delivery of your package was completed today at 2:15pm.",
+      "Your shipment arrived today at 2:15pm."
+    ]
+  },
+  {
+    "group_id": 25,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your receipt is attached for your recent purchase.",
+      "A copy of your receipt is included for your latest order.",
+      "Please find the receipt attached for your recent transaction."
+    ]
+  },
+  {
+    "group_id": 26,
+    "label": "legitimate",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "Your professor has posted feedback on your assignment.",
+      "Feedback on your assignment has been posted by your professor.",
+      "Your assignment now has feedback posted by your professor."
+    ]
+  },
+  {
+    "group_id": 27,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your appointment has been moved to Wednesday at 11am.",
+      "We rescheduled your appointment for Wednesday at 11am.",
+      "The new time for your appointment is Wednesday at 11am."
+    ]
+  },
+  {
+    "group_id": 28,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your support request has been received.",
+      "We have received your help request.",
+      "Your customer service ticket has been submitted."
+    ]
+  },
+  {
+    "group_id": 29,
+    "label": "legitimate",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "The event starts at 6pm and doors open at 5:30pm.",
+      "Doors open at 5:30pm, and the event starts at 6pm.",
+      "At 5:30pm the doors will open, followed by the event at 6pm."
+    ]
+  },
+  {
+    "group_id": 30,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your account profile was updated successfully.",
+      "The changes to your profile have been saved.",
+      "Your profile information has been updated."
+    ]
+  },
+  {
+    "group_id": 31,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Thank you for your order. It will arrive in 3–5 days.",
+      "We appreciate your purchase. Delivery will take 3–5 days.",
+      "Your order is confirmed and will arrive within a few days."
+    ]
+  },
+  {
+    "group_id": 32,
+    "label": "legitimate",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "The meeting is scheduled for Friday at 2pm.",
+      "Friday at 2pm is when the meeting is scheduled.",
+      "The meeting will take place at 2pm on Friday."
+    ]
+  },
+  {
+    "group_id": 33,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "I am following up on our last discussion.",
+      "Just checking in after our previous conversation.",
+      "I wanted to reconnect after we spoke last week."
+    ]
+  },
+  {
+    "group_id": 34,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your statement is ready. Log in to view it.",
+      "Your account statement is available. Please sign in.",
+      "This month's statement is ready to access online."
+    ]
+  },
+  {
+    "group_id": 35,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your appointment is confirmed for Monday.",
+      "We have scheduled your appointment for Monday.",
+      "Monday is set for your appointment."
+    ]
+  },
+  {
+    "group_id": 36,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your application is under review.",
+      "We are reviewing your application.",
+      "Your submission is being evaluated."
+    ]
+  },
+  {
+    "group_id": 37,
+    "label": "legitimate",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "Please review the document and send feedback.",
+      "Feedback should be sent after reviewing the document.",
+      "After reviewing the document, please provide feedback."
+    ]
+  },
+  {
+    "group_id": 38,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Happy birthday! Enjoy your special discount.",
+      "We added a birthday discount to your account.",
+      "Celebrate with a discount we applied for your birthday."
+    ]
+  },
+  {
+    "group_id": 39,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your password was updated successfully.",
+      "Your password has been changed.",
+      "Password update completed successfully."
+    ]
+  },
+  {
+    "group_id": 40,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your package was delivered today.",
+      "We delivered your package earlier today.",
+      "Your shipment arrived today."
+    ]
+  },
+  {
+    "group_id": 41,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your email account will be deactivated. Confirm your credentials now.",
+      "Your mailbox will be disabled. Verify your login details immediately.",
+      "Your email access will be removed. Validate your account information now."
+    ]
+  },
+  {
+    "group_id": 42,
+    "label": "phishing",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "You must confirm your identity to avoid losing access to your account.",
+      "To avoid losing access to your account, your identity must be confirmed.",
+      "Confirmation of your identity is required to prevent loss of account access."
+    ]
+  },
+  {
+    "group_id": 43,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your Netflix subscription has been paused. Update payment details to resume.",
+      "We were unable to process your Netflix payment. Please update your billing to continue service.",
+      "Your Netflix account is on hold due to a payment issue. Add new billing information to reactivate."
+    ]
+  },
+  {
+    "group_id": 44,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your account was flagged for suspicious activity. Secure it now.",
+      "Suspicious behavior was detected on your account. Protect it immediately.",
+      "Your account has unusual activity. Take action now to secure it."
+    ]
+  },
+  {
+    "group_id": 45,
+    "label": "phishing",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "Your storage will be permanently deleted if you do not upgrade your plan.",
+      "If you do not upgrade your plan, your storage will be permanently deleted.",
+      "Permanent deletion of your storage will occur unless your plan is upgraded."
+    ]
+  },
+  {
+    "group_id": 46,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "You have received a voice message. Click here to listen to it.",
+      "A new voicemail is waiting for you. Access it using the link provided.",
+      "You got a new voice message. Follow the link to hear it."
+    ]
+  },
+  {
+    "group_id": 47,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your account verification is incomplete. Finish it now.",
+      "Your account validation is pending. Complete it immediately.",
+      "Your verification process is not finished. Finalize it now."
+    ]
+  },
+  {
+    "group_id": 48,
+    "label": "phishing",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "Your payment method needs to be updated to avoid service disruption.",
+      "To avoid service disruption, your payment method needs to be updated.",
+      "Updating your payment method is required to prevent service disruption."
+    ]
+  },
+  {
+    "group_id": 49,
+    "label": "phishing",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your Amazon account has been locked. Verify your details to unlock it.",
+      "We locked your Amazon account due to unusual activity. Please confirm your information.",
+      "Access to your Amazon account is restricted. Submit your details to restore access."
+    ]
+  },
+  {
+    "group_id": 50,
+    "label": "phishing",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "You have an unpaid fine. Pay now to avoid legal action.",
+      "A penalty remains unpaid. Settle it immediately to prevent legal consequences.",
+      "You owe a fine. Make payment now to avoid legal issues."
+    ]
+  },
+  {
+    "group_id": 51,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your order has shipped and is on the way.",
+      "Your purchase has been dispatched and is in transit.",
+      "Your package has been sent and will arrive soon."
+    ]
+  },
+  {
+    "group_id": 52,
+    "label": "legitimate",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "Your grade has been posted to the student portal.",
+      "The student portal now shows your grade.",
+      "Your grade is now available in the student portal."
+    ]
+  },
+  {
+    "group_id": 53,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Reminder: Your rent payment is due on the 1st of the month.",
+      "This is a reminder that rent is due on the first of each month.",
+      "Please remember your rent should be paid by the 1st."
+    ]
+  },
+  {
+    "group_id": 54,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your ticket has been successfully booked.",
+      "Your reservation has been confirmed.",
+      "Your booking was completed successfully."
+    ]
+  },
+  {
+    "group_id": 55,
+    "label": "legitimate",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "The system will undergo maintenance tonight from 12am to 2am.",
+      "From 12am to 2am tonight, the system will undergo maintenance.",
+      "Maintenance will occur tonight between 12am and 2am."
+    ]
+  },
+  {
+    "group_id": 56,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Thanks for attending the workshop. We hope you found it useful.",
+      "We appreciate your participation in the workshop. Hope it was helpful.",
+      "Thank you for joining the session. We hope it added value for you."
+    ]
+  },
+  {
+    "group_id": 57,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your refund has been processed successfully.",
+      "Your reimbursement has been completed.",
+      "The refund for your transaction has been issued."
+    ]
+  },
+  {
+    "group_id": 58,
+    "label": "legitimate",
+    "paraphrase_type": "syntactic",
+    "variants": [
+      "You can download your report from the dashboard.",
+      "From the dashboard, your report can be downloaded.",
+      "Your report is available for download on the dashboard."
+    ]
+  },
+  {
+    "group_id": 59,
+    "label": "legitimate",
+    "paraphrase_type": "manual",
+    "variants": [
+      "Your subscription will renew automatically next month.",
+      "Next month, your subscription will renew on its own.",
+      "Your plan is set to auto-renew in the upcoming month."
+    ]
+  },
+  {
+    "group_id": 60,
+    "label": "legitimate",
+    "paraphrase_type": "synonym",
+    "variants": [
+      "Your password was updated successfully.",
+      "Your account password has been changed.",
+      "The password update for your account was completed."
+    ]
+  }
+]

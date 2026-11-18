@@ -1,0 +1,181 @@
+group_id,label,paraphrase_type,variant_index,text
+1,phishing,synonym,1,Your account has been suspended. Click here immediately to restore access.
+1,phishing,synonym,2,Your account has been deactivated. Press here right away to regain entry.
+1,phishing,synonym,3,Your profile has been disabled. Tap here urgently to recover your access.
+2,phishing,syntactic,1,We have detected unusual activity on your account. Verify your identity now.
+2,phishing,syntactic,2,Unusual activity has been detected on your account. Your identity must be verified now.
+2,phishing,syntactic,3,Your account has had unusual activity detected. Now verify who you are.
+3,phishing,manual,1,Congratulations! You have won a $1000 gift card. Claim your prize by clicking the link below.
+3,phishing,manual,2,You are the lucky winner of a $1000 gift card! Use the link below to collect your reward.
+3,phishing,manual,3,Great news — a $1000 gift card is yours! Follow the link to claim what you have won.
+4,phishing,synonym,1,Your password will expire in 24 hours. Update it now to avoid losing access.
+4,phishing,synonym,2,Your password is set to expire within a day. Change it immediately to prevent being locked out.
+4,phishing,synonym,3,In 24 hours your password expires. Reset it now or you will lose access to your account.
+5,phishing,syntactic,1,Your bank requires you to confirm your details to prevent your account from being closed.
+5,phishing,syntactic,2,"To prevent account closure, your bank is requiring that your details be confirmed."
+5,phishing,syntactic,3,Confirmation of your details is being required by your bank to keep your account open.
+6,phishing,manual,1,Action required: Your PayPal account has been limited. Please verify your information.
+6,phishing,manual,2,Important notice: Limitations have been placed on your PayPal account. Verification of your information is needed.
+6,phishing,manual,3,Your PayPal account is now limited and requires your attention. Please confirm your details to continue.
+7,phishing,synonym,1,You have a pending package delivery. Confirm your address to receive it.
+7,phishing,synonym,2,A package is awaiting delivery to you. Please verify your shipping address.
+7,phishing,synonym,3,There is an outstanding parcel for you. Confirm where to send it by clicking here.
+8,phishing,syntactic,1,You must update your billing information or your subscription will be cancelled.
+8,phishing,syntactic,2,Your subscription will be cancelled unless you update your billing information.
+8,phishing,syntactic,3,"Unless billing information is updated by you, cancellation of your subscription will occur."
+9,phishing,manual,1,Security alert: Someone tried to log into your account from an unknown device. Click to secure it.
+9,phishing,manual,2,We noticed a login attempt on your account from an unrecognized device. Please secure your account now.
+9,phishing,manual,3,An unfamiliar device attempted to access your account. Take action immediately to protect it.
+10,phishing,synonym,1,Your free trial has expired. Enter your credit card details to continue using the service.
+10,phishing,synonym,2,The free trial period has ended. Provide your payment information to keep using the service.
+10,phishing,synonym,3,Your complimentary trial is over. Submit your card details to maintain access.
+11,phishing,manual,1,Your email storage is full. Click here to upgrade your mailbox.
+11,phishing,manual,2,Your inbox has reached capacity. Follow this link to expand storage.
+11,phishing,manual,3,Your mailbox is out of space. Use the link below to restore access.
+12,phishing,synonym,1,Your tax refund is ready. Submit your banking details.
+12,phishing,synonym,2,Your refund is available. Provide bank information to receive it.
+12,phishing,synonym,3,Your tax return payment is pending. Enter your account details.
+13,phishing,syntactic,1,Your account will be locked unless you verify your phone number.
+13,phishing,syntactic,2,"Unless you verify your phone number, your account will be locked."
+13,phishing,syntactic,3,Verification of your phone number is required to prevent locking.
+14,phishing,manual,1,We could not process your payment. Update your card now.
+14,phishing,manual,2,Your payment failed. Please update your billing information.
+14,phishing,manual,3,There was a problem charging your card. Add new details now.
+15,phishing,synonym,1,You received a secure document. Open the link to view.
+15,phishing,synonym,2,A protected file was sent to you. Click to access it.
+15,phishing,synonym,3,A confidential document is waiting. Use the link to open it.
+16,phishing,manual,1,Your payroll deposit failed. Verify your account immediately.
+16,phishing,manual,2,We could not send your salary. Confirm your banking information.
+16,phishing,manual,3,Your paycheck was not processed. Update your details now.
+17,phishing,synonym,1,A new device accessed your account. Secure it now.
+17,phishing,synonym,2,Your account was opened from another device. Protect it immediately.
+17,phishing,synonym,3,An unknown device logged into your account. Take action now.
+18,phishing,syntactic,1,Your invoice is overdue. Pay now to avoid penalties.
+18,phishing,syntactic,2,"To avoid penalties, your overdue invoice must be paid now."
+18,phishing,syntactic,3,Payment is required now to avoid penalties on your overdue invoice.
+19,phishing,manual,1,Your files will be deleted unless you confirm your account.
+19,phishing,manual,2,Confirm your account or your files will be removed.
+19,phishing,manual,3,You must verify your account to prevent file deletion.
+20,phishing,manual,1,You have been selected for a remote job. Send your details.
+20,phishing,manual,2,You qualify for a work-from-home job. Provide your information.
+20,phishing,manual,3,A remote opportunity is available. Share your details now.
+21,legitimate,manual,1,Your library books are due next week. You can renew them online if needed.
+21,legitimate,manual,2,This is a reminder that your library items are due next week. Online renewal is available.
+21,legitimate,manual,3,"Your borrowed books should be returned next week, or you may renew them through the library portal."
+22,legitimate,synonym,1,Your course registration has been completed successfully.
+22,legitimate,synonym,2,Your class enrollment was processed successfully.
+22,legitimate,synonym,3,Your registration for the course has been confirmed.
+23,legitimate,syntactic,1,The office will be closed on Monday for the holiday.
+23,legitimate,syntactic,2,"On Monday, the office will be closed because of the holiday."
+23,legitimate,syntactic,3,"Because of the holiday, the office will not be open on Monday."
+24,legitimate,manual,1,Your package was delivered today at 2:15pm.
+24,legitimate,manual,2,Delivery of your package was completed today at 2:15pm.
+24,legitimate,manual,3,Your shipment arrived today at 2:15pm.
+25,legitimate,synonym,1,Your receipt is attached for your recent purchase.
+25,legitimate,synonym,2,A copy of your receipt is included for your latest order.
+25,legitimate,synonym,3,Please find the receipt attached for your recent transaction.
+26,legitimate,syntactic,1,Your professor has posted feedback on your assignment.
+26,legitimate,syntactic,2,Feedback on your assignment has been posted by your professor.
+26,legitimate,syntactic,3,Your assignment now has feedback posted by your professor.
+27,legitimate,manual,1,Your appointment has been moved to Wednesday at 11am.
+27,legitimate,manual,2,We rescheduled your appointment for Wednesday at 11am.
+27,legitimate,manual,3,The new time for your appointment is Wednesday at 11am.
+28,legitimate,synonym,1,Your support request has been received.
+28,legitimate,synonym,2,We have received your help request.
+28,legitimate,synonym,3,Your customer service ticket has been submitted.
+29,legitimate,syntactic,1,The event starts at 6pm and doors open at 5:30pm.
+29,legitimate,syntactic,2,"Doors open at 5:30pm, and the event starts at 6pm."
+29,legitimate,syntactic,3,"At 5:30pm the doors will open, followed by the event at 6pm."
+30,legitimate,manual,1,Your account profile was updated successfully.
+30,legitimate,manual,2,The changes to your profile have been saved.
+30,legitimate,manual,3,Your profile information has been updated.
+31,legitimate,synonym,1,Thank you for your order. It will arrive in 3–5 days.
+31,legitimate,synonym,2,We appreciate your purchase. Delivery will take 3–5 days.
+31,legitimate,synonym,3,Your order is confirmed and will arrive within a few days.
+32,legitimate,syntactic,1,The meeting is scheduled for Friday at 2pm.
+32,legitimate,syntactic,2,Friday at 2pm is when the meeting is scheduled.
+32,legitimate,syntactic,3,The meeting will take place at 2pm on Friday.
+33,legitimate,manual,1,I am following up on our last discussion.
+33,legitimate,manual,2,Just checking in after our previous conversation.
+33,legitimate,manual,3,I wanted to reconnect after we spoke last week.
+34,legitimate,synonym,1,Your statement is ready. Log in to view it.
+34,legitimate,synonym,2,Your account statement is available. Please sign in.
+34,legitimate,synonym,3,This month's statement is ready to access online.
+35,legitimate,manual,1,Your appointment is confirmed for Monday.
+35,legitimate,manual,2,We have scheduled your appointment for Monday.
+35,legitimate,manual,3,Monday is set for your appointment.
+36,legitimate,synonym,1,Your application is under review.
+36,legitimate,synonym,2,We are reviewing your application.
+36,legitimate,synonym,3,Your submission is being evaluated.
+37,legitimate,syntactic,1,Please review the document and send feedback.
+37,legitimate,syntactic,2,Feedback should be sent after reviewing the document.
+37,legitimate,syntactic,3,"After reviewing the document, please provide feedback."
+38,legitimate,manual,1,Happy birthday! Enjoy your special discount.
+38,legitimate,manual,2,We added a birthday discount to your account.
+38,legitimate,manual,3,Celebrate with a discount we applied for your birthday.
+39,legitimate,synonym,1,Your password was updated successfully.
+39,legitimate,synonym,2,Your password has been changed.
+39,legitimate,synonym,3,Password update completed successfully.
+40,legitimate,manual,1,Your package was delivered today.
+40,legitimate,manual,2,We delivered your package earlier today.
+40,legitimate,manual,3,Your shipment arrived today.
+41,phishing,synonym,1,Your email account will be deactivated. Confirm your credentials now.
+41,phishing,synonym,2,Your mailbox will be disabled. Verify your login details immediately.
+41,phishing,synonym,3,Your email access will be removed. Validate your account information now.
+42,phishing,syntactic,1,You must confirm your identity to avoid losing access to your account.
+42,phishing,syntactic,2,"To avoid losing access to your account, your identity must be confirmed."
+42,phishing,syntactic,3,Confirmation of your identity is required to prevent loss of account access.
+43,phishing,manual,1,Your Netflix subscription has been paused. Update payment details to resume.
+43,phishing,manual,2,We were unable to process your Netflix payment. Please update your billing to continue service.
+43,phishing,manual,3,Your Netflix account is on hold due to a payment issue. Add new billing information to reactivate.
+44,phishing,synonym,1,Your account was flagged for suspicious activity. Secure it now.
+44,phishing,synonym,2,Suspicious behavior was detected on your account. Protect it immediately.
+44,phishing,synonym,3,Your account has unusual activity. Take action now to secure it.
+45,phishing,syntactic,1,Your storage will be permanently deleted if you do not upgrade your plan.
+45,phishing,syntactic,2,"If you do not upgrade your plan, your storage will be permanently deleted."
+45,phishing,syntactic,3,Permanent deletion of your storage will occur unless your plan is upgraded.
+46,phishing,manual,1,You have received a voice message. Click here to listen to it.
+46,phishing,manual,2,A new voicemail is waiting for you. Access it using the link provided.
+46,phishing,manual,3,You got a new voice message. Follow the link to hear it.
+47,phishing,synonym,1,Your account verification is incomplete. Finish it now.
+47,phishing,synonym,2,Your account validation is pending. Complete it immediately.
+47,phishing,synonym,3,Your verification process is not finished. Finalize it now.
+48,phishing,syntactic,1,Your payment method needs to be updated to avoid service disruption.
+48,phishing,syntactic,2,"To avoid service disruption, your payment method needs to be updated."
+48,phishing,syntactic,3,Updating your payment method is required to prevent service disruption.
+49,phishing,manual,1,Your Amazon account has been locked. Verify your details to unlock it.
+49,phishing,manual,2,We locked your Amazon account due to unusual activity. Please confirm your information.
+49,phishing,manual,3,Access to your Amazon account is restricted. Submit your details to restore access.
+50,phishing,synonym,1,You have an unpaid fine. Pay now to avoid legal action.
+50,phishing,synonym,2,A penalty remains unpaid. Settle it immediately to prevent legal consequences.
+50,phishing,synonym,3,You owe a fine. Make payment now to avoid legal issues.
+51,legitimate,synonym,1,Your order has shipped and is on the way.
+51,legitimate,synonym,2,Your purchase has been dispatched and is in transit.
+51,legitimate,synonym,3,Your package has been sent and will arrive soon.
+52,legitimate,syntactic,1,Your grade has been posted to the student portal.
+52,legitimate,syntactic,2,The student portal now shows your grade.
+52,legitimate,syntactic,3,Your grade is now available in the student portal.
+53,legitimate,manual,1,Reminder: Your rent payment is due on the 1st of the month.
+53,legitimate,manual,2,This is a reminder that rent is due on the first of each month.
+53,legitimate,manual,3,Please remember your rent should be paid by the 1st.
+54,legitimate,synonym,1,Your ticket has been successfully booked.
+54,legitimate,synonym,2,Your reservation has been confirmed.
+54,legitimate,synonym,3,Your booking was completed successfully.
+55,legitimate,syntactic,1,The system will undergo maintenance tonight from 12am to 2am.
+55,legitimate,syntactic,2,"From 12am to 2am tonight, the system will undergo maintenance."
+55,legitimate,syntactic,3,Maintenance will occur tonight between 12am and 2am.
+56,legitimate,manual,1,Thanks for attending the workshop. We hope you found it useful.
+56,legitimate,manual,2,We appreciate your participation in the workshop. Hope it was helpful.
+56,legitimate,manual,3,Thank you for joining the session. We hope it added value for you.
+57,legitimate,synonym,1,Your refund has been processed successfully.
+57,legitimate,synonym,2,Your reimbursement has been completed.
+57,legitimate,synonym,3,The refund for your transaction has been issued.
+58,legitimate,syntactic,1,You can download your report from the dashboard.
+58,legitimate,syntactic,2,"From the dashboard, your report can be downloaded."
+58,legitimate,syntactic,3,Your report is available for download on the dashboard.
+59,legitimate,manual,1,Your subscription will renew automatically next month.
+59,legitimate,manual,2,"Next month, your subscription will renew on its own."
+59,legitimate,manual,3,Your plan is set to auto-renew in the upcoming month.
+60,legitimate,synonym,1,Your password was updated successfully.
+60,legitimate,synonym,2,Your account password has been changed.
+60,legitimate,synonym,3,The password update for your account was completed.

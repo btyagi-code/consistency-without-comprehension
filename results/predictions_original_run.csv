@@ -1,0 +1,721 @@
+model,group_id,true_label,paraphrase_type,variant_index,variant_text,predicted_label
+bart,1,phishing,synonym,1,Your account has been suspended. Click here immediately to restore access.,legitimate
+bart,1,phishing,synonym,2,Your account has been deactivated. Press here right away to regain entry.,legitimate
+bart,1,phishing,synonym,3,Your profile has been disabled. Tap here urgently to recover your access.,legitimate
+bart,2,phishing,syntactic,1,We have detected unusual activity on your account. Verify your identity now.,phishing
+bart,2,phishing,syntactic,2,Unusual activity has been detected on your account. Your identity must be verified now.,phishing
+bart,2,phishing,syntactic,3,Your account has had unusual activity detected. Now verify who you are.,phishing
+bart,3,phishing,manual,1,Congratulations! You have won a $1000 gift card. Claim your prize by clicking the link below.,legitimate
+bart,3,phishing,manual,2,You are the lucky winner of a $1000 gift card! Use the link below to collect your reward.,legitimate
+bart,3,phishing,manual,3,Great news — a $1000 gift card is yours! Follow the link to claim what you have won.,legitimate
+bart,4,phishing,synonym,1,Your password will expire in 24 hours. Update it now to avoid losing access.,legitimate
+bart,4,phishing,synonym,2,Your password is set to expire within a day. Change it immediately to prevent being locked out.,legitimate
+bart,4,phishing,synonym,3,In 24 hours your password expires. Reset it now or you will lose access to your account.,legitimate
+bart,5,phishing,syntactic,1,Your bank requires you to confirm your details to prevent your account from being closed.,legitimate
+bart,5,phishing,syntactic,2,"To prevent account closure, your bank is requiring that your details be confirmed.",legitimate
+bart,5,phishing,syntactic,3,Confirmation of your details is being required by your bank to keep your account open.,legitimate
+bart,6,phishing,manual,1,Action required: Your PayPal account has been limited. Please verify your information.,phishing
+bart,6,phishing,manual,2,Important notice: Limitations have been placed on your PayPal account. Verification of your information is needed.,legitimate
+bart,6,phishing,manual,3,Your PayPal account is now limited and requires your attention. Please confirm your details to continue.,legitimate
+bart,7,phishing,synonym,1,You have a pending package delivery. Confirm your address to receive it.,legitimate
+bart,7,phishing,synonym,2,A package is awaiting delivery to you. Please verify your shipping address.,legitimate
+bart,7,phishing,synonym,3,There is an outstanding parcel for you. Confirm where to send it by clicking here.,legitimate
+bart,8,phishing,syntactic,1,You must update your billing information or your subscription will be cancelled.,legitimate
+bart,8,phishing,syntactic,2,Your subscription will be cancelled unless you update your billing information.,legitimate
+bart,8,phishing,syntactic,3,"Unless billing information is updated by you, cancellation of your subscription will occur.",legitimate
+bart,9,phishing,manual,1,Security alert: Someone tried to log into your account from an unknown device. Click to secure it.,phishing
+bart,9,phishing,manual,2,We noticed a login attempt on your account from an unrecognized device. Please secure your account now.,phishing
+bart,9,phishing,manual,3,An unfamiliar device attempted to access your account. Take action immediately to protect it.,phishing
+bart,10,phishing,synonym,1,Your free trial has expired. Enter your credit card details to continue using the service.,legitimate
+bart,10,phishing,synonym,2,The free trial period has ended. Provide your payment information to keep using the service.,legitimate
+bart,10,phishing,synonym,3,Your complimentary trial is over. Submit your card details to maintain access.,legitimate
+bart,11,phishing,manual,1,Your email storage is full. Click here to upgrade your mailbox.,legitimate
+bart,11,phishing,manual,2,Your inbox has reached capacity. Follow this link to expand storage.,legitimate
+bart,11,phishing,manual,3,Your mailbox is out of space. Use the link below to restore access.,legitimate
+bart,12,phishing,synonym,1,Your tax refund is ready. Submit your banking details.,legitimate
+bart,12,phishing,synonym,2,Your refund is available. Provide bank information to receive it.,legitimate
+bart,12,phishing,synonym,3,Your tax return payment is pending. Enter your account details.,legitimate
+bart,13,phishing,syntactic,1,Your account will be locked unless you verify your phone number.,phishing
+bart,13,phishing,syntactic,2,"Unless you verify your phone number, your account will be locked.",phishing
+bart,13,phishing,syntactic,3,Verification of your phone number is required to prevent locking.,legitimate
+bart,14,phishing,manual,1,We could not process your payment. Update your card now.,legitimate
+bart,14,phishing,manual,2,Your payment failed. Please update your billing information.,legitimate
+bart,14,phishing,manual,3,There was a problem charging your card. Add new details now.,legitimate
+bart,15,phishing,synonym,1,You received a secure document. Open the link to view.,legitimate
+bart,15,phishing,synonym,2,A protected file was sent to you. Click to access it.,legitimate
+bart,15,phishing,synonym,3,A confidential document is waiting. Use the link to open it.,legitimate
+bart,16,phishing,manual,1,Your payroll deposit failed. Verify your account immediately.,legitimate
+bart,16,phishing,manual,2,We could not send your salary. Confirm your banking information.,phishing
+bart,16,phishing,manual,3,Your paycheck was not processed. Update your details now.,legitimate
+bart,17,phishing,synonym,1,A new device accessed your account. Secure it now.,legitimate
+bart,17,phishing,synonym,2,Your account was opened from another device. Protect it immediately.,phishing
+bart,17,phishing,synonym,3,An unknown device logged into your account. Take action now.,phishing
+bart,18,phishing,syntactic,1,Your invoice is overdue. Pay now to avoid penalties.,legitimate
+bart,18,phishing,syntactic,2,"To avoid penalties, your overdue invoice must be paid now.",legitimate
+bart,18,phishing,syntactic,3,Payment is required now to avoid penalties on your overdue invoice.,legitimate
+bart,19,phishing,manual,1,Your files will be deleted unless you confirm your account.,phishing
+bart,19,phishing,manual,2,Confirm your account or your files will be removed.,phishing
+bart,19,phishing,manual,3,You must verify your account to prevent file deletion.,legitimate
+bart,20,phishing,manual,1,You have been selected for a remote job. Send your details.,legitimate
+bart,20,phishing,manual,2,You qualify for a work-from-home job. Provide your information.,legitimate
+bart,20,phishing,manual,3,A remote opportunity is available. Share your details now.,legitimate
+bart,21,legitimate,manual,1,Your library books are due next week. You can renew them online if needed.,legitimate
+bart,21,legitimate,manual,2,This is a reminder that your library items are due next week. Online renewal is available.,legitimate
+bart,21,legitimate,manual,3,"Your borrowed books should be returned next week, or you may renew them through the library portal.",legitimate
+bart,22,legitimate,synonym,1,Your course registration has been completed successfully.,legitimate
+bart,22,legitimate,synonym,2,Your class enrollment was processed successfully.,legitimate
+bart,22,legitimate,synonym,3,Your registration for the course has been confirmed.,legitimate
+bart,23,legitimate,syntactic,1,The office will be closed on Monday for the holiday.,legitimate
+bart,23,legitimate,syntactic,2,"On Monday, the office will be closed because of the holiday.",legitimate
+bart,23,legitimate,syntactic,3,"Because of the holiday, the office will not be open on Monday.",legitimate
+bart,24,legitimate,manual,1,Your package was delivered today at 2:15pm.,legitimate
+bart,24,legitimate,manual,2,Delivery of your package was completed today at 2:15pm.,legitimate
+bart,24,legitimate,manual,3,Your shipment arrived today at 2:15pm.,legitimate
+bart,25,legitimate,synonym,1,Your receipt is attached for your recent purchase.,legitimate
+bart,25,legitimate,synonym,2,A copy of your receipt is included for your latest order.,legitimate
+bart,25,legitimate,synonym,3,Please find the receipt attached for your recent transaction.,legitimate
+bart,26,legitimate,syntactic,1,Your professor has posted feedback on your assignment.,legitimate
+bart,26,legitimate,syntactic,2,Feedback on your assignment has been posted by your professor.,legitimate
+bart,26,legitimate,syntactic,3,Your assignment now has feedback posted by your professor.,legitimate
+bart,27,legitimate,manual,1,Your appointment has been moved to Wednesday at 11am.,legitimate
+bart,27,legitimate,manual,2,We rescheduled your appointment for Wednesday at 11am.,legitimate
+bart,27,legitimate,manual,3,The new time for your appointment is Wednesday at 11am.,legitimate
+bart,28,legitimate,synonym,1,Your support request has been received.,legitimate
+bart,28,legitimate,synonym,2,We have received your help request.,legitimate
+bart,28,legitimate,synonym,3,Your customer service ticket has been submitted.,legitimate
+bart,29,legitimate,syntactic,1,The event starts at 6pm and doors open at 5:30pm.,legitimate
+bart,29,legitimate,syntactic,2,"Doors open at 5:30pm, and the event starts at 6pm.",legitimate
+bart,29,legitimate,syntactic,3,"At 5:30pm the doors will open, followed by the event at 6pm.",legitimate
+bart,30,legitimate,manual,1,Your account profile was updated successfully.,legitimate
+bart,30,legitimate,manual,2,The changes to your profile have been saved.,legitimate
+bart,30,legitimate,manual,3,Your profile information has been updated.,legitimate
+bart,31,legitimate,synonym,1,Thank you for your order. It will arrive in 3–5 days.,legitimate
+bart,31,legitimate,synonym,2,We appreciate your purchase. Delivery will take 3–5 days.,legitimate
+bart,31,legitimate,synonym,3,Your order is confirmed and will arrive within a few days.,legitimate
+bart,32,legitimate,syntactic,1,The meeting is scheduled for Friday at 2pm.,legitimate
+bart,32,legitimate,syntactic,2,Friday at 2pm is when the meeting is scheduled.,legitimate
+bart,32,legitimate,syntactic,3,The meeting will take place at 2pm on Friday.,legitimate
+bart,33,legitimate,manual,1,I am following up on our last discussion.,legitimate
+bart,33,legitimate,manual,2,Just checking in after our previous conversation.,legitimate
+bart,33,legitimate,manual,3,I wanted to reconnect after we spoke last week.,legitimate
+bart,34,legitimate,synonym,1,Your statement is ready. Log in to view it.,legitimate
+bart,34,legitimate,synonym,2,Your account statement is available. Please sign in.,legitimate
+bart,34,legitimate,synonym,3,This month's statement is ready to access online.,legitimate
+bart,35,legitimate,manual,1,Your appointment is confirmed for Monday.,legitimate
+bart,35,legitimate,manual,2,We have scheduled your appointment for Monday.,legitimate
+bart,35,legitimate,manual,3,Monday is set for your appointment.,legitimate
+bart,36,legitimate,synonym,1,Your application is under review.,legitimate
+bart,36,legitimate,synonym,2,We are reviewing your application.,legitimate
+bart,36,legitimate,synonym,3,Your submission is being evaluated.,legitimate
+bart,37,legitimate,syntactic,1,Please review the document and send feedback.,legitimate
+bart,37,legitimate,syntactic,2,Feedback should be sent after reviewing the document.,legitimate
+bart,37,legitimate,syntactic,3,"After reviewing the document, please provide feedback.",legitimate
+bart,38,legitimate,manual,1,Happy birthday! Enjoy your special discount.,legitimate
+bart,38,legitimate,manual,2,We added a birthday discount to your account.,legitimate
+bart,38,legitimate,manual,3,Celebrate with a discount we applied for your birthday.,legitimate
+bart,39,legitimate,synonym,1,Your password was updated successfully.,legitimate
+bart,39,legitimate,synonym,2,Your password has been changed.,legitimate
+bart,39,legitimate,synonym,3,Password update completed successfully.,legitimate
+bart,40,legitimate,manual,1,Your package was delivered today.,legitimate
+bart,40,legitimate,manual,2,We delivered your package earlier today.,legitimate
+bart,40,legitimate,manual,3,Your shipment arrived today.,legitimate
+bart,41,phishing,synonym,1,Your email account will be deactivated. Confirm your credentials now.,legitimate
+bart,41,phishing,synonym,2,Your mailbox will be disabled. Verify your login details immediately.,legitimate
+bart,41,phishing,synonym,3,Your email access will be removed. Validate your account information now.,legitimate
+bart,42,phishing,syntactic,1,You must confirm your identity to avoid losing access to your account.,legitimate
+bart,42,phishing,syntactic,2,"To avoid losing access to your account, your identity must be confirmed.",legitimate
+bart,42,phishing,syntactic,3,Confirmation of your identity is required to prevent loss of account access.,legitimate
+bart,43,phishing,manual,1,Your Netflix subscription has been paused. Update payment details to resume.,legitimate
+bart,43,phishing,manual,2,We were unable to process your Netflix payment. Please update your billing to continue service.,legitimate
+bart,43,phishing,manual,3,Your Netflix account is on hold due to a payment issue. Add new billing information to reactivate.,legitimate
+bart,44,phishing,synonym,1,Your account was flagged for suspicious activity. Secure it now.,phishing
+bart,44,phishing,synonym,2,Suspicious behavior was detected on your account. Protect it immediately.,phishing
+bart,44,phishing,synonym,3,Your account has unusual activity. Take action now to secure it.,phishing
+bart,45,phishing,syntactic,1,Your storage will be permanently deleted if you do not upgrade your plan.,legitimate
+bart,45,phishing,syntactic,2,"If you do not upgrade your plan, your storage will be permanently deleted.",legitimate
+bart,45,phishing,syntactic,3,Permanent deletion of your storage will occur unless your plan is upgraded.,legitimate
+bart,46,phishing,manual,1,You have received a voice message. Click here to listen to it.,legitimate
+bart,46,phishing,manual,2,A new voicemail is waiting for you. Access it using the link provided.,legitimate
+bart,46,phishing,manual,3,You got a new voice message. Follow the link to hear it.,legitimate
+bart,47,phishing,synonym,1,Your account verification is incomplete. Finish it now.,legitimate
+bart,47,phishing,synonym,2,Your account validation is pending. Complete it immediately.,legitimate
+bart,47,phishing,synonym,3,Your verification process is not finished. Finalize it now.,legitimate
+bart,48,phishing,syntactic,1,Your payment method needs to be updated to avoid service disruption.,legitimate
+bart,48,phishing,syntactic,2,"To avoid service disruption, your payment method needs to be updated.",legitimate
+bart,48,phishing,syntactic,3,Updating your payment method is required to prevent service disruption.,legitimate
+bart,49,phishing,manual,1,Your Amazon account has been locked. Verify your details to unlock it.,legitimate
+bart,49,phishing,manual,2,We locked your Amazon account due to unusual activity. Please confirm your information.,phishing
+bart,49,phishing,manual,3,Access to your Amazon account is restricted. Submit your details to restore access.,legitimate
+bart,50,phishing,synonym,1,You have an unpaid fine. Pay now to avoid legal action.,legitimate
+bart,50,phishing,synonym,2,A penalty remains unpaid. Settle it immediately to prevent legal consequences.,legitimate
+bart,50,phishing,synonym,3,You owe a fine. Make payment now to avoid legal issues.,legitimate
+bart,51,legitimate,synonym,1,Your order has shipped and is on the way.,legitimate
+bart,51,legitimate,synonym,2,Your purchase has been dispatched and is in transit.,legitimate
+bart,51,legitimate,synonym,3,Your package has been sent and will arrive soon.,legitimate
+bart,52,legitimate,syntactic,1,Your grade has been posted to the student portal.,legitimate
+bart,52,legitimate,syntactic,2,The student portal now shows your grade.,legitimate
+bart,52,legitimate,syntactic,3,Your grade is now available in the student portal.,legitimate
+bart,53,legitimate,manual,1,Reminder: Your rent payment is due on the 1st of the month.,legitimate
+bart,53,legitimate,manual,2,This is a reminder that rent is due on the first of each month.,legitimate
+bart,53,legitimate,manual,3,Please remember your rent should be paid by the 1st.,legitimate
+bart,54,legitimate,synonym,1,Your ticket has been successfully booked.,legitimate
+bart,54,legitimate,synonym,2,Your reservation has been confirmed.,legitimate
+bart,54,legitimate,synonym,3,Your booking was completed successfully.,legitimate
+bart,55,legitimate,syntactic,1,The system will undergo maintenance tonight from 12am to 2am.,legitimate
+bart,55,legitimate,syntactic,2,"From 12am to 2am tonight, the system will undergo maintenance.",legitimate
+bart,55,legitimate,syntactic,3,Maintenance will occur tonight between 12am and 2am.,legitimate
+bart,56,legitimate,manual,1,Thanks for attending the workshop. We hope you found it useful.,legitimate
+bart,56,legitimate,manual,2,We appreciate your participation in the workshop. Hope it was helpful.,legitimate
+bart,56,legitimate,manual,3,Thank you for joining the session. We hope it added value for you.,legitimate
+bart,57,legitimate,synonym,1,Your refund has been processed successfully.,legitimate
+bart,57,legitimate,synonym,2,Your reimbursement has been completed.,legitimate
+bart,57,legitimate,synonym,3,The refund for your transaction has been issued.,legitimate
+bart,58,legitimate,syntactic,1,You can download your report from the dashboard.,legitimate
+bart,58,legitimate,syntactic,2,"From the dashboard, your report can be downloaded.",legitimate
+bart,58,legitimate,syntactic,3,Your report is available for download on the dashboard.,legitimate
+bart,59,legitimate,manual,1,Your subscription will renew automatically next month.,legitimate
+bart,59,legitimate,manual,2,"Next month, your subscription will renew on its own.",legitimate
+bart,59,legitimate,manual,3,Your plan is set to auto-renew in the upcoming month.,legitimate
+bart,60,legitimate,synonym,1,Your password was updated successfully.,legitimate
+bart,60,legitimate,synonym,2,Your account password has been changed.,legitimate
+bart,60,legitimate,synonym,3,The password update for your account was completed.,legitimate
+roberta,1,phishing,synonym,1,Your account has been suspended. Click here immediately to restore access.,phishing
+roberta,1,phishing,synonym,2,Your account has been deactivated. Press here right away to regain entry.,phishing
+roberta,1,phishing,synonym,3,Your profile has been disabled. Tap here urgently to recover your access.,phishing
+roberta,2,phishing,syntactic,1,We have detected unusual activity on your account. Verify your identity now.,phishing
+roberta,2,phishing,syntactic,2,Unusual activity has been detected on your account. Your identity must be verified now.,phishing
+roberta,2,phishing,syntactic,3,Your account has had unusual activity detected. Now verify who you are.,legitimate
+roberta,3,phishing,manual,1,Congratulations! You have won a $1000 gift card. Claim your prize by clicking the link below.,legitimate
+roberta,3,phishing,manual,2,You are the lucky winner of a $1000 gift card! Use the link below to collect your reward.,legitimate
+roberta,3,phishing,manual,3,Great news — a $1000 gift card is yours! Follow the link to claim what you have won.,legitimate
+roberta,4,phishing,synonym,1,Your password will expire in 24 hours. Update it now to avoid losing access.,legitimate
+roberta,4,phishing,synonym,2,Your password is set to expire within a day. Change it immediately to prevent being locked out.,legitimate
+roberta,4,phishing,synonym,3,In 24 hours your password expires. Reset it now or you will lose access to your account.,legitimate
+roberta,5,phishing,syntactic,1,Your bank requires you to confirm your details to prevent your account from being closed.,legitimate
+roberta,5,phishing,syntactic,2,"To prevent account closure, your bank is requiring that your details be confirmed.",legitimate
+roberta,5,phishing,syntactic,3,Confirmation of your details is being required by your bank to keep your account open.,legitimate
+roberta,6,phishing,manual,1,Action required: Your PayPal account has been limited. Please verify your information.,phishing
+roberta,6,phishing,manual,2,Important notice: Limitations have been placed on your PayPal account. Verification of your information is needed.,legitimate
+roberta,6,phishing,manual,3,Your PayPal account is now limited and requires your attention. Please confirm your details to continue.,legitimate
+roberta,7,phishing,synonym,1,You have a pending package delivery. Confirm your address to receive it.,legitimate
+roberta,7,phishing,synonym,2,A package is awaiting delivery to you. Please verify your shipping address.,legitimate
+roberta,7,phishing,synonym,3,There is an outstanding parcel for you. Confirm where to send it by clicking here.,legitimate
+roberta,8,phishing,syntactic,1,You must update your billing information or your subscription will be cancelled.,legitimate
+roberta,8,phishing,syntactic,2,Your subscription will be cancelled unless you update your billing information.,legitimate
+roberta,8,phishing,syntactic,3,"Unless billing information is updated by you, cancellation of your subscription will occur.",legitimate
+roberta,9,phishing,manual,1,Security alert: Someone tried to log into your account from an unknown device. Click to secure it.,phishing
+roberta,9,phishing,manual,2,We noticed a login attempt on your account from an unrecognized device. Please secure your account now.,phishing
+roberta,9,phishing,manual,3,An unfamiliar device attempted to access your account. Take action immediately to protect it.,legitimate
+roberta,10,phishing,synonym,1,Your free trial has expired. Enter your credit card details to continue using the service.,legitimate
+roberta,10,phishing,synonym,2,The free trial period has ended. Provide your payment information to keep using the service.,legitimate
+roberta,10,phishing,synonym,3,Your complimentary trial is over. Submit your card details to maintain access.,legitimate
+roberta,11,phishing,manual,1,Your email storage is full. Click here to upgrade your mailbox.,legitimate
+roberta,11,phishing,manual,2,Your inbox has reached capacity. Follow this link to expand storage.,legitimate
+roberta,11,phishing,manual,3,Your mailbox is out of space. Use the link below to restore access.,legitimate
+roberta,12,phishing,synonym,1,Your tax refund is ready. Submit your banking details.,legitimate
+roberta,12,phishing,synonym,2,Your refund is available. Provide bank information to receive it.,legitimate
+roberta,12,phishing,synonym,3,Your tax return payment is pending. Enter your account details.,legitimate
+roberta,13,phishing,syntactic,1,Your account will be locked unless you verify your phone number.,phishing
+roberta,13,phishing,syntactic,2,"Unless you verify your phone number, your account will be locked.",legitimate
+roberta,13,phishing,syntactic,3,Verification of your phone number is required to prevent locking.,legitimate
+roberta,14,phishing,manual,1,We could not process your payment. Update your card now.,legitimate
+roberta,14,phishing,manual,2,Your payment failed. Please update your billing information.,legitimate
+roberta,14,phishing,manual,3,There was a problem charging your card. Add new details now.,legitimate
+roberta,15,phishing,synonym,1,You received a secure document. Open the link to view.,legitimate
+roberta,15,phishing,synonym,2,A protected file was sent to you. Click to access it.,legitimate
+roberta,15,phishing,synonym,3,A confidential document is waiting. Use the link to open it.,legitimate
+roberta,16,phishing,manual,1,Your payroll deposit failed. Verify your account immediately.,legitimate
+roberta,16,phishing,manual,2,We could not send your salary. Confirm your banking information.,phishing
+roberta,16,phishing,manual,3,Your paycheck was not processed. Update your details now.,legitimate
+roberta,17,phishing,synonym,1,A new device accessed your account. Secure it now.,legitimate
+roberta,17,phishing,synonym,2,Your account was opened from another device. Protect it immediately.,phishing
+roberta,17,phishing,synonym,3,An unknown device logged into your account. Take action now.,phishing
+roberta,18,phishing,syntactic,1,Your invoice is overdue. Pay now to avoid penalties.,legitimate
+roberta,18,phishing,syntactic,2,"To avoid penalties, your overdue invoice must be paid now.",legitimate
+roberta,18,phishing,syntactic,3,Payment is required now to avoid penalties on your overdue invoice.,legitimate
+roberta,19,phishing,manual,1,Your files will be deleted unless you confirm your account.,phishing
+roberta,19,phishing,manual,2,Confirm your account or your files will be removed.,legitimate
+roberta,19,phishing,manual,3,You must verify your account to prevent file deletion.,legitimate
+roberta,20,phishing,manual,1,You have been selected for a remote job. Send your details.,legitimate
+roberta,20,phishing,manual,2,You qualify for a work-from-home job. Provide your information.,legitimate
+roberta,20,phishing,manual,3,A remote opportunity is available. Share your details now.,legitimate
+roberta,21,legitimate,manual,1,Your library books are due next week. You can renew them online if needed.,legitimate
+roberta,21,legitimate,manual,2,This is a reminder that your library items are due next week. Online renewal is available.,legitimate
+roberta,21,legitimate,manual,3,"Your borrowed books should be returned next week, or you may renew them through the library portal.",legitimate
+roberta,22,legitimate,synonym,1,Your course registration has been completed successfully.,legitimate
+roberta,22,legitimate,synonym,2,Your class enrollment was processed successfully.,legitimate
+roberta,22,legitimate,synonym,3,Your registration for the course has been confirmed.,legitimate
+roberta,23,legitimate,syntactic,1,The office will be closed on Monday for the holiday.,legitimate
+roberta,23,legitimate,syntactic,2,"On Monday, the office will be closed because of the holiday.",legitimate
+roberta,23,legitimate,syntactic,3,"Because of the holiday, the office will not be open on Monday.",legitimate
+roberta,24,legitimate,manual,1,Your package was delivered today at 2:15pm.,legitimate
+roberta,24,legitimate,manual,2,Delivery of your package was completed today at 2:15pm.,legitimate
+roberta,24,legitimate,manual,3,Your shipment arrived today at 2:15pm.,legitimate
+roberta,25,legitimate,synonym,1,Your receipt is attached for your recent purchase.,legitimate
+roberta,25,legitimate,synonym,2,A copy of your receipt is included for your latest order.,legitimate
+roberta,25,legitimate,synonym,3,Please find the receipt attached for your recent transaction.,legitimate
+roberta,26,legitimate,syntactic,1,Your professor has posted feedback on your assignment.,legitimate
+roberta,26,legitimate,syntactic,2,Feedback on your assignment has been posted by your professor.,legitimate
+roberta,26,legitimate,syntactic,3,Your assignment now has feedback posted by your professor.,legitimate
+roberta,27,legitimate,manual,1,Your appointment has been moved to Wednesday at 11am.,legitimate
+roberta,27,legitimate,manual,2,We rescheduled your appointment for Wednesday at 11am.,legitimate
+roberta,27,legitimate,manual,3,The new time for your appointment is Wednesday at 11am.,legitimate
+roberta,28,legitimate,synonym,1,Your support request has been received.,legitimate
+roberta,28,legitimate,synonym,2,We have received your help request.,legitimate
+roberta,28,legitimate,synonym,3,Your customer service ticket has been submitted.,legitimate
+roberta,29,legitimate,syntactic,1,The event starts at 6pm and doors open at 5:30pm.,legitimate
+roberta,29,legitimate,syntactic,2,"Doors open at 5:30pm, and the event starts at 6pm.",legitimate
+roberta,29,legitimate,syntactic,3,"At 5:30pm the doors will open, followed by the event at 6pm.",legitimate
+roberta,30,legitimate,manual,1,Your account profile was updated successfully.,legitimate
+roberta,30,legitimate,manual,2,The changes to your profile have been saved.,legitimate
+roberta,30,legitimate,manual,3,Your profile information has been updated.,legitimate
+roberta,31,legitimate,synonym,1,Thank you for your order. It will arrive in 3–5 days.,legitimate
+roberta,31,legitimate,synonym,2,We appreciate your purchase. Delivery will take 3–5 days.,legitimate
+roberta,31,legitimate,synonym,3,Your order is confirmed and will arrive within a few days.,legitimate
+roberta,32,legitimate,syntactic,1,The meeting is scheduled for Friday at 2pm.,legitimate
+roberta,32,legitimate,syntactic,2,Friday at 2pm is when the meeting is scheduled.,legitimate
+roberta,32,legitimate,syntactic,3,The meeting will take place at 2pm on Friday.,legitimate
+roberta,33,legitimate,manual,1,I am following up on our last discussion.,legitimate
+roberta,33,legitimate,manual,2,Just checking in after our previous conversation.,legitimate
+roberta,33,legitimate,manual,3,I wanted to reconnect after we spoke last week.,legitimate
+roberta,34,legitimate,synonym,1,Your statement is ready. Log in to view it.,legitimate
+roberta,34,legitimate,synonym,2,Your account statement is available. Please sign in.,legitimate
+roberta,34,legitimate,synonym,3,This month's statement is ready to access online.,legitimate
+roberta,35,legitimate,manual,1,Your appointment is confirmed for Monday.,legitimate
+roberta,35,legitimate,manual,2,We have scheduled your appointment for Monday.,legitimate
+roberta,35,legitimate,manual,3,Monday is set for your appointment.,legitimate
+roberta,36,legitimate,synonym,1,Your application is under review.,legitimate
+roberta,36,legitimate,synonym,2,We are reviewing your application.,legitimate
+roberta,36,legitimate,synonym,3,Your submission is being evaluated.,legitimate
+roberta,37,legitimate,syntactic,1,Please review the document and send feedback.,legitimate
+roberta,37,legitimate,syntactic,2,Feedback should be sent after reviewing the document.,legitimate
+roberta,37,legitimate,syntactic,3,"After reviewing the document, please provide feedback.",legitimate
+roberta,38,legitimate,manual,1,Happy birthday! Enjoy your special discount.,legitimate
+roberta,38,legitimate,manual,2,We added a birthday discount to your account.,legitimate
+roberta,38,legitimate,manual,3,Celebrate with a discount we applied for your birthday.,legitimate
+roberta,39,legitimate,synonym,1,Your password was updated successfully.,legitimate
+roberta,39,legitimate,synonym,2,Your password has been changed.,legitimate
+roberta,39,legitimate,synonym,3,Password update completed successfully.,legitimate
+roberta,40,legitimate,manual,1,Your package was delivered today.,legitimate
+roberta,40,legitimate,manual,2,We delivered your package earlier today.,legitimate
+roberta,40,legitimate,manual,3,Your shipment arrived today.,legitimate
+roberta,41,phishing,synonym,1,Your email account will be deactivated. Confirm your credentials now.,phishing
+roberta,41,phishing,synonym,2,Your mailbox will be disabled. Verify your login details immediately.,phishing
+roberta,41,phishing,synonym,3,Your email access will be removed. Validate your account information now.,phishing
+roberta,42,phishing,syntactic,1,You must confirm your identity to avoid losing access to your account.,legitimate
+roberta,42,phishing,syntactic,2,"To avoid losing access to your account, your identity must be confirmed.",legitimate
+roberta,42,phishing,syntactic,3,Confirmation of your identity is required to prevent loss of account access.,legitimate
+roberta,43,phishing,manual,1,Your Netflix subscription has been paused. Update payment details to resume.,legitimate
+roberta,43,phishing,manual,2,We were unable to process your Netflix payment. Please update your billing to continue service.,phishing
+roberta,43,phishing,manual,3,Your Netflix account is on hold due to a payment issue. Add new billing information to reactivate.,legitimate
+roberta,44,phishing,synonym,1,Your account was flagged for suspicious activity. Secure it now.,phishing
+roberta,44,phishing,synonym,2,Suspicious behavior was detected on your account. Protect it immediately.,phishing
+roberta,44,phishing,synonym,3,Your account has unusual activity. Take action now to secure it.,phishing
+roberta,45,phishing,syntactic,1,Your storage will be permanently deleted if you do not upgrade your plan.,legitimate
+roberta,45,phishing,syntactic,2,"If you do not upgrade your plan, your storage will be permanently deleted.",legitimate
+roberta,45,phishing,syntactic,3,Permanent deletion of your storage will occur unless your plan is upgraded.,legitimate
+roberta,46,phishing,manual,1,You have received a voice message. Click here to listen to it.,legitimate
+roberta,46,phishing,manual,2,A new voicemail is waiting for you. Access it using the link provided.,legitimate
+roberta,46,phishing,manual,3,You got a new voice message. Follow the link to hear it.,legitimate
+roberta,47,phishing,synonym,1,Your account verification is incomplete. Finish it now.,legitimate
+roberta,47,phishing,synonym,2,Your account validation is pending. Complete it immediately.,legitimate
+roberta,47,phishing,synonym,3,Your verification process is not finished. Finalize it now.,legitimate
+roberta,48,phishing,syntactic,1,Your payment method needs to be updated to avoid service disruption.,legitimate
+roberta,48,phishing,syntactic,2,"To avoid service disruption, your payment method needs to be updated.",legitimate
+roberta,48,phishing,syntactic,3,Updating your payment method is required to prevent service disruption.,legitimate
+roberta,49,phishing,manual,1,Your Amazon account has been locked. Verify your details to unlock it.,phishing
+roberta,49,phishing,manual,2,We locked your Amazon account due to unusual activity. Please confirm your information.,legitimate
+roberta,49,phishing,manual,3,Access to your Amazon account is restricted. Submit your details to restore access.,phishing
+roberta,50,phishing,synonym,1,You have an unpaid fine. Pay now to avoid legal action.,legitimate
+roberta,50,phishing,synonym,2,A penalty remains unpaid. Settle it immediately to prevent legal consequences.,legitimate
+roberta,50,phishing,synonym,3,You owe a fine. Make payment now to avoid legal issues.,legitimate
+roberta,51,legitimate,synonym,1,Your order has shipped and is on the way.,legitimate
+roberta,51,legitimate,synonym,2,Your purchase has been dispatched and is in transit.,legitimate
+roberta,51,legitimate,synonym,3,Your package has been sent and will arrive soon.,legitimate
+roberta,52,legitimate,syntactic,1,Your grade has been posted to the student portal.,legitimate
+roberta,52,legitimate,syntactic,2,The student portal now shows your grade.,legitimate
+roberta,52,legitimate,syntactic,3,Your grade is now available in the student portal.,legitimate
+roberta,53,legitimate,manual,1,Reminder: Your rent payment is due on the 1st of the month.,legitimate
+roberta,53,legitimate,manual,2,This is a reminder that rent is due on the first of each month.,legitimate
+roberta,53,legitimate,manual,3,Please remember your rent should be paid by the 1st.,legitimate
+roberta,54,legitimate,synonym,1,Your ticket has been successfully booked.,legitimate
+roberta,54,legitimate,synonym,2,Your reservation has been confirmed.,legitimate
+roberta,54,legitimate,synonym,3,Your booking was completed successfully.,legitimate
+roberta,55,legitimate,syntactic,1,The system will undergo maintenance tonight from 12am to 2am.,legitimate
+roberta,55,legitimate,syntactic,2,"From 12am to 2am tonight, the system will undergo maintenance.",legitimate
+roberta,55,legitimate,syntactic,3,Maintenance will occur tonight between 12am and 2am.,legitimate
+roberta,56,legitimate,manual,1,Thanks for attending the workshop. We hope you found it useful.,legitimate
+roberta,56,legitimate,manual,2,We appreciate your participation in the workshop. Hope it was helpful.,legitimate
+roberta,56,legitimate,manual,3,Thank you for joining the session. We hope it added value for you.,legitimate
+roberta,57,legitimate,synonym,1,Your refund has been processed successfully.,legitimate
+roberta,57,legitimate,synonym,2,Your reimbursement has been completed.,legitimate
+roberta,57,legitimate,synonym,3,The refund for your transaction has been issued.,legitimate
+roberta,58,legitimate,syntactic,1,You can download your report from the dashboard.,legitimate
+roberta,58,legitimate,syntactic,2,"From the dashboard, your report can be downloaded.",legitimate
+roberta,58,legitimate,syntactic,3,Your report is available for download on the dashboard.,legitimate
+roberta,59,legitimate,manual,1,Your subscription will renew automatically next month.,legitimate
+roberta,59,legitimate,manual,2,"Next month, your subscription will renew on its own.",legitimate
+roberta,59,legitimate,manual,3,Your plan is set to auto-renew in the upcoming month.,legitimate
+roberta,60,legitimate,synonym,1,Your password was updated successfully.,legitimate
+roberta,60,legitimate,synonym,2,Your account password has been changed.,legitimate
+roberta,60,legitimate,synonym,3,The password update for your account was completed.,legitimate
+deberta,1,phishing,synonym,1,Your account has been suspended. Click here immediately to restore access.,phishing
+deberta,1,phishing,synonym,2,Your account has been deactivated. Press here right away to regain entry.,phishing
+deberta,1,phishing,synonym,3,Your profile has been disabled. Tap here urgently to recover your access.,phishing
+deberta,2,phishing,syntactic,1,We have detected unusual activity on your account. Verify your identity now.,phishing
+deberta,2,phishing,syntactic,2,Unusual activity has been detected on your account. Your identity must be verified now.,phishing
+deberta,2,phishing,syntactic,3,Your account has had unusual activity detected. Now verify who you are.,phishing
+deberta,3,phishing,manual,1,Congratulations! You have won a $1000 gift card. Claim your prize by clicking the link below.,phishing
+deberta,3,phishing,manual,2,You are the lucky winner of a $1000 gift card! Use the link below to collect your reward.,phishing
+deberta,3,phishing,manual,3,Great news — a $1000 gift card is yours! Follow the link to claim what you have won.,phishing
+deberta,4,phishing,synonym,1,Your password will expire in 24 hours. Update it now to avoid losing access.,phishing
+deberta,4,phishing,synonym,2,Your password is set to expire within a day. Change it immediately to prevent being locked out.,phishing
+deberta,4,phishing,synonym,3,In 24 hours your password expires. Reset it now or you will lose access to your account.,phishing
+deberta,5,phishing,syntactic,1,Your bank requires you to confirm your details to prevent your account from being closed.,legitimate
+deberta,5,phishing,syntactic,2,"To prevent account closure, your bank is requiring that your details be confirmed.",phishing
+deberta,5,phishing,syntactic,3,Confirmation of your details is being required by your bank to keep your account open.,phishing
+deberta,6,phishing,manual,1,Action required: Your PayPal account has been limited. Please verify your information.,phishing
+deberta,6,phishing,manual,2,Important notice: Limitations have been placed on your PayPal account. Verification of your information is needed.,phishing
+deberta,6,phishing,manual,3,Your PayPal account is now limited and requires your attention. Please confirm your details to continue.,phishing
+deberta,7,phishing,synonym,1,You have a pending package delivery. Confirm your address to receive it.,phishing
+deberta,7,phishing,synonym,2,A package is awaiting delivery to you. Please verify your shipping address.,phishing
+deberta,7,phishing,synonym,3,There is an outstanding parcel for you. Confirm where to send it by clicking here.,phishing
+deberta,8,phishing,syntactic,1,You must update your billing information or your subscription will be cancelled.,phishing
+deberta,8,phishing,syntactic,2,Your subscription will be cancelled unless you update your billing information.,phishing
+deberta,8,phishing,syntactic,3,"Unless billing information is updated by you, cancellation of your subscription will occur.",phishing
+deberta,9,phishing,manual,1,Security alert: Someone tried to log into your account from an unknown device. Click to secure it.,legitimate
+deberta,9,phishing,manual,2,We noticed a login attempt on your account from an unrecognized device. Please secure your account now.,phishing
+deberta,9,phishing,manual,3,An unfamiliar device attempted to access your account. Take action immediately to protect it.,phishing
+deberta,10,phishing,synonym,1,Your free trial has expired. Enter your credit card details to continue using the service.,phishing
+deberta,10,phishing,synonym,2,The free trial period has ended. Provide your payment information to keep using the service.,phishing
+deberta,10,phishing,synonym,3,Your complimentary trial is over. Submit your card details to maintain access.,phishing
+deberta,11,phishing,manual,1,Your email storage is full. Click here to upgrade your mailbox.,phishing
+deberta,11,phishing,manual,2,Your inbox has reached capacity. Follow this link to expand storage.,phishing
+deberta,11,phishing,manual,3,Your mailbox is out of space. Use the link below to restore access.,phishing
+deberta,12,phishing,synonym,1,Your tax refund is ready. Submit your banking details.,phishing
+deberta,12,phishing,synonym,2,Your refund is available. Provide bank information to receive it.,phishing
+deberta,12,phishing,synonym,3,Your tax return payment is pending. Enter your account details.,phishing
+deberta,13,phishing,syntactic,1,Your account will be locked unless you verify your phone number.,phishing
+deberta,13,phishing,syntactic,2,"Unless you verify your phone number, your account will be locked.",phishing
+deberta,13,phishing,syntactic,3,Verification of your phone number is required to prevent locking.,legitimate
+deberta,14,phishing,manual,1,We could not process your payment. Update your card now.,phishing
+deberta,14,phishing,manual,2,Your payment failed. Please update your billing information.,phishing
+deberta,14,phishing,manual,3,There was a problem charging your card. Add new details now.,phishing
+deberta,15,phishing,synonym,1,You received a secure document. Open the link to view.,phishing
+deberta,15,phishing,synonym,2,A protected file was sent to you. Click to access it.,phishing
+deberta,15,phishing,synonym,3,A confidential document is waiting. Use the link to open it.,phishing
+deberta,16,phishing,manual,1,Your payroll deposit failed. Verify your account immediately.,phishing
+deberta,16,phishing,manual,2,We could not send your salary. Confirm your banking information.,phishing
+deberta,16,phishing,manual,3,Your paycheck was not processed. Update your details now.,phishing
+deberta,17,phishing,synonym,1,A new device accessed your account. Secure it now.,phishing
+deberta,17,phishing,synonym,2,Your account was opened from another device. Protect it immediately.,phishing
+deberta,17,phishing,synonym,3,An unknown device logged into your account. Take action now.,phishing
+deberta,18,phishing,syntactic,1,Your invoice is overdue. Pay now to avoid penalties.,phishing
+deberta,18,phishing,syntactic,2,"To avoid penalties, your overdue invoice must be paid now.",phishing
+deberta,18,phishing,syntactic,3,Payment is required now to avoid penalties on your overdue invoice.,phishing
+deberta,19,phishing,manual,1,Your files will be deleted unless you confirm your account.,phishing
+deberta,19,phishing,manual,2,Confirm your account or your files will be removed.,phishing
+deberta,19,phishing,manual,3,You must verify your account to prevent file deletion.,phishing
+deberta,20,phishing,manual,1,You have been selected for a remote job. Send your details.,legitimate
+deberta,20,phishing,manual,2,You qualify for a work-from-home job. Provide your information.,phishing
+deberta,20,phishing,manual,3,A remote opportunity is available. Share your details now.,phishing
+deberta,21,legitimate,manual,1,Your library books are due next week. You can renew them online if needed.,legitimate
+deberta,21,legitimate,manual,2,This is a reminder that your library items are due next week. Online renewal is available.,legitimate
+deberta,21,legitimate,manual,3,"Your borrowed books should be returned next week, or you may renew them through the library portal.",legitimate
+deberta,22,legitimate,synonym,1,Your course registration has been completed successfully.,legitimate
+deberta,22,legitimate,synonym,2,Your class enrollment was processed successfully.,legitimate
+deberta,22,legitimate,synonym,3,Your registration for the course has been confirmed.,legitimate
+deberta,23,legitimate,syntactic,1,The office will be closed on Monday for the holiday.,legitimate
+deberta,23,legitimate,syntactic,2,"On Monday, the office will be closed because of the holiday.",legitimate
+deberta,23,legitimate,syntactic,3,"Because of the holiday, the office will not be open on Monday.",legitimate
+deberta,24,legitimate,manual,1,Your package was delivered today at 2:15pm.,legitimate
+deberta,24,legitimate,manual,2,Delivery of your package was completed today at 2:15pm.,legitimate
+deberta,24,legitimate,manual,3,Your shipment arrived today at 2:15pm.,legitimate
+deberta,25,legitimate,synonym,1,Your receipt is attached for your recent purchase.,legitimate
+deberta,25,legitimate,synonym,2,A copy of your receipt is included for your latest order.,legitimate
+deberta,25,legitimate,synonym,3,Please find the receipt attached for your recent transaction.,legitimate
+deberta,26,legitimate,syntactic,1,Your professor has posted feedback on your assignment.,legitimate
+deberta,26,legitimate,syntactic,2,Feedback on your assignment has been posted by your professor.,legitimate
+deberta,26,legitimate,syntactic,3,Your assignment now has feedback posted by your professor.,legitimate
+deberta,27,legitimate,manual,1,Your appointment has been moved to Wednesday at 11am.,legitimate
+deberta,27,legitimate,manual,2,We rescheduled your appointment for Wednesday at 11am.,legitimate
+deberta,27,legitimate,manual,3,The new time for your appointment is Wednesday at 11am.,legitimate
+deberta,28,legitimate,synonym,1,Your support request has been received.,legitimate
+deberta,28,legitimate,synonym,2,We have received your help request.,legitimate
+deberta,28,legitimate,synonym,3,Your customer service ticket has been submitted.,legitimate
+deberta,29,legitimate,syntactic,1,The event starts at 6pm and doors open at 5:30pm.,legitimate
+deberta,29,legitimate,syntactic,2,"Doors open at 5:30pm, and the event starts at 6pm.",legitimate
+deberta,29,legitimate,syntactic,3,"At 5:30pm the doors will open, followed by the event at 6pm.",legitimate
+deberta,30,legitimate,manual,1,Your account profile was updated successfully.,legitimate
+deberta,30,legitimate,manual,2,The changes to your profile have been saved.,legitimate
+deberta,30,legitimate,manual,3,Your profile information has been updated.,legitimate
+deberta,31,legitimate,synonym,1,Thank you for your order. It will arrive in 3–5 days.,legitimate
+deberta,31,legitimate,synonym,2,We appreciate your purchase. Delivery will take 3–5 days.,legitimate
+deberta,31,legitimate,synonym,3,Your order is confirmed and will arrive within a few days.,legitimate
+deberta,32,legitimate,syntactic,1,The meeting is scheduled for Friday at 2pm.,legitimate
+deberta,32,legitimate,syntactic,2,Friday at 2pm is when the meeting is scheduled.,legitimate
+deberta,32,legitimate,syntactic,3,The meeting will take place at 2pm on Friday.,legitimate
+deberta,33,legitimate,manual,1,I am following up on our last discussion.,legitimate
+deberta,33,legitimate,manual,2,Just checking in after our previous conversation.,legitimate
+deberta,33,legitimate,manual,3,I wanted to reconnect after we spoke last week.,legitimate
+deberta,34,legitimate,synonym,1,Your statement is ready. Log in to view it.,legitimate
+deberta,34,legitimate,synonym,2,Your account statement is available. Please sign in.,phishing
+deberta,34,legitimate,synonym,3,This month's statement is ready to access online.,legitimate
+deberta,35,legitimate,manual,1,Your appointment is confirmed for Monday.,legitimate
+deberta,35,legitimate,manual,2,We have scheduled your appointment for Monday.,legitimate
+deberta,35,legitimate,manual,3,Monday is set for your appointment.,legitimate
+deberta,36,legitimate,synonym,1,Your application is under review.,legitimate
+deberta,36,legitimate,synonym,2,We are reviewing your application.,legitimate
+deberta,36,legitimate,synonym,3,Your submission is being evaluated.,legitimate
+deberta,37,legitimate,syntactic,1,Please review the document and send feedback.,legitimate
+deberta,37,legitimate,syntactic,2,Feedback should be sent after reviewing the document.,legitimate
+deberta,37,legitimate,syntactic,3,"After reviewing the document, please provide feedback.",legitimate
+deberta,38,legitimate,manual,1,Happy birthday! Enjoy your special discount.,legitimate
+deberta,38,legitimate,manual,2,We added a birthday discount to your account.,legitimate
+deberta,38,legitimate,manual,3,Celebrate with a discount we applied for your birthday.,phishing
+deberta,39,legitimate,synonym,1,Your password was updated successfully.,legitimate
+deberta,39,legitimate,synonym,2,Your password has been changed.,phishing
+deberta,39,legitimate,synonym,3,Password update completed successfully.,legitimate
+deberta,40,legitimate,manual,1,Your package was delivered today.,legitimate
+deberta,40,legitimate,manual,2,We delivered your package earlier today.,legitimate
+deberta,40,legitimate,manual,3,Your shipment arrived today.,legitimate
+deberta,41,phishing,synonym,1,Your email account will be deactivated. Confirm your credentials now.,phishing
+deberta,41,phishing,synonym,2,Your mailbox will be disabled. Verify your login details immediately.,phishing
+deberta,41,phishing,synonym,3,Your email access will be removed. Validate your account information now.,phishing
+deberta,42,phishing,syntactic,1,You must confirm your identity to avoid losing access to your account.,phishing
+deberta,42,phishing,syntactic,2,"To avoid losing access to your account, your identity must be confirmed.",phishing
+deberta,42,phishing,syntactic,3,Confirmation of your identity is required to prevent loss of account access.,phishing
+deberta,43,phishing,manual,1,Your Netflix subscription has been paused. Update payment details to resume.,phishing
+deberta,43,phishing,manual,2,We were unable to process your Netflix payment. Please update your billing to continue service.,legitimate
+deberta,43,phishing,manual,3,Your Netflix account is on hold due to a payment issue. Add new billing information to reactivate.,phishing
+deberta,44,phishing,synonym,1,Your account was flagged for suspicious activity. Secure it now.,phishing
+deberta,44,phishing,synonym,2,Suspicious behavior was detected on your account. Protect it immediately.,phishing
+deberta,44,phishing,synonym,3,Your account has unusual activity. Take action now to secure it.,phishing
+deberta,45,phishing,syntactic,1,Your storage will be permanently deleted if you do not upgrade your plan.,phishing
+deberta,45,phishing,syntactic,2,"If you do not upgrade your plan, your storage will be permanently deleted.",phishing
+deberta,45,phishing,syntactic,3,Permanent deletion of your storage will occur unless your plan is upgraded.,phishing
+deberta,46,phishing,manual,1,You have received a voice message. Click here to listen to it.,legitimate
+deberta,46,phishing,manual,2,A new voicemail is waiting for you. Access it using the link provided.,legitimate
+deberta,46,phishing,manual,3,You got a new voice message. Follow the link to hear it.,legitimate
+deberta,47,phishing,synonym,1,Your account verification is incomplete. Finish it now.,phishing
+deberta,47,phishing,synonym,2,Your account validation is pending. Complete it immediately.,phishing
+deberta,47,phishing,synonym,3,Your verification process is not finished. Finalize it now.,phishing
+deberta,48,phishing,syntactic,1,Your payment method needs to be updated to avoid service disruption.,phishing
+deberta,48,phishing,syntactic,2,"To avoid service disruption, your payment method needs to be updated.",phishing
+deberta,48,phishing,syntactic,3,Updating your payment method is required to prevent service disruption.,phishing
+deberta,49,phishing,manual,1,Your Amazon account has been locked. Verify your details to unlock it.,phishing
+deberta,49,phishing,manual,2,We locked your Amazon account due to unusual activity. Please confirm your information.,phishing
+deberta,49,phishing,manual,3,Access to your Amazon account is restricted. Submit your details to restore access.,phishing
+deberta,50,phishing,synonym,1,You have an unpaid fine. Pay now to avoid legal action.,phishing
+deberta,50,phishing,synonym,2,A penalty remains unpaid. Settle it immediately to prevent legal consequences.,phishing
+deberta,50,phishing,synonym,3,You owe a fine. Make payment now to avoid legal issues.,phishing
+deberta,51,legitimate,synonym,1,Your order has shipped and is on the way.,legitimate
+deberta,51,legitimate,synonym,2,Your purchase has been dispatched and is in transit.,legitimate
+deberta,51,legitimate,synonym,3,Your package has been sent and will arrive soon.,legitimate
+deberta,52,legitimate,syntactic,1,Your grade has been posted to the student portal.,legitimate
+deberta,52,legitimate,syntactic,2,The student portal now shows your grade.,legitimate
+deberta,52,legitimate,syntactic,3,Your grade is now available in the student portal.,legitimate
+deberta,53,legitimate,manual,1,Reminder: Your rent payment is due on the 1st of the month.,phishing
+deberta,53,legitimate,manual,2,This is a reminder that rent is due on the first of each month.,legitimate
+deberta,53,legitimate,manual,3,Please remember your rent should be paid by the 1st.,legitimate
+deberta,54,legitimate,synonym,1,Your ticket has been successfully booked.,legitimate
+deberta,54,legitimate,synonym,2,Your reservation has been confirmed.,legitimate
+deberta,54,legitimate,synonym,3,Your booking was completed successfully.,legitimate
+deberta,55,legitimate,syntactic,1,The system will undergo maintenance tonight from 12am to 2am.,legitimate
+deberta,55,legitimate,syntactic,2,"From 12am to 2am tonight, the system will undergo maintenance.",legitimate
+deberta,55,legitimate,syntactic,3,Maintenance will occur tonight between 12am and 2am.,legitimate
+deberta,56,legitimate,manual,1,Thanks for attending the workshop. We hope you found it useful.,legitimate
+deberta,56,legitimate,manual,2,We appreciate your participation in the workshop. Hope it was helpful.,legitimate
+deberta,56,legitimate,manual,3,Thank you for joining the session. We hope it added value for you.,legitimate
+deberta,57,legitimate,synonym,1,Your refund has been processed successfully.,legitimate
+deberta,57,legitimate,synonym,2,Your reimbursement has been completed.,legitimate
+deberta,57,legitimate,synonym,3,The refund for your transaction has been issued.,legitimate
+deberta,58,legitimate,syntactic,1,You can download your report from the dashboard.,legitimate
+deberta,58,legitimate,syntactic,2,"From the dashboard, your report can be downloaded.",legitimate
+deberta,58,legitimate,syntactic,3,Your report is available for download on the dashboard.,legitimate
+deberta,59,legitimate,manual,1,Your subscription will renew automatically next month.,phishing
+deberta,59,legitimate,manual,2,"Next month, your subscription will renew on its own.",phishing
+deberta,59,legitimate,manual,3,Your plan is set to auto-renew in the upcoming month.,legitimate
+deberta,60,legitimate,synonym,1,Your password was updated successfully.,legitimate
+deberta,60,legitimate,synonym,2,Your account password has been changed.,phishing
+deberta,60,legitimate,synonym,3,The password update for your account was completed.,legitimate
+distilbart,1,phishing,synonym,1,Your account has been suspended. Click here immediately to restore access.,legitimate
+distilbart,1,phishing,synonym,2,Your account has been deactivated. Press here right away to regain entry.,legitimate
+distilbart,1,phishing,synonym,3,Your profile has been disabled. Tap here urgently to recover your access.,legitimate
+distilbart,2,phishing,syntactic,1,We have detected unusual activity on your account. Verify your identity now.,phishing
+distilbart,2,phishing,syntactic,2,Unusual activity has been detected on your account. Your identity must be verified now.,phishing
+distilbart,2,phishing,syntactic,3,Your account has had unusual activity detected. Now verify who you are.,legitimate
+distilbart,3,phishing,manual,1,Congratulations! You have won a $1000 gift card. Claim your prize by clicking the link below.,legitimate
+distilbart,3,phishing,manual,2,You are the lucky winner of a $1000 gift card! Use the link below to collect your reward.,legitimate
+distilbart,3,phishing,manual,3,Great news — a $1000 gift card is yours! Follow the link to claim what you have won.,legitimate
+distilbart,4,phishing,synonym,1,Your password will expire in 24 hours. Update it now to avoid losing access.,legitimate
+distilbart,4,phishing,synonym,2,Your password is set to expire within a day. Change it immediately to prevent being locked out.,legitimate
+distilbart,4,phishing,synonym,3,In 24 hours your password expires. Reset it now or you will lose access to your account.,legitimate
+distilbart,5,phishing,syntactic,1,Your bank requires you to confirm your details to prevent your account from being closed.,legitimate
+distilbart,5,phishing,syntactic,2,"To prevent account closure, your bank is requiring that your details be confirmed.",legitimate
+distilbart,5,phishing,syntactic,3,Confirmation of your details is being required by your bank to keep your account open.,legitimate
+distilbart,6,phishing,manual,1,Action required: Your PayPal account has been limited. Please verify your information.,phishing
+distilbart,6,phishing,manual,2,Important notice: Limitations have been placed on your PayPal account. Verification of your information is needed.,phishing
+distilbart,6,phishing,manual,3,Your PayPal account is now limited and requires your attention. Please confirm your details to continue.,legitimate
+distilbart,7,phishing,synonym,1,You have a pending package delivery. Confirm your address to receive it.,legitimate
+distilbart,7,phishing,synonym,2,A package is awaiting delivery to you. Please verify your shipping address.,legitimate
+distilbart,7,phishing,synonym,3,There is an outstanding parcel for you. Confirm where to send it by clicking here.,legitimate
+distilbart,8,phishing,syntactic,1,You must update your billing information or your subscription will be cancelled.,legitimate
+distilbart,8,phishing,syntactic,2,Your subscription will be cancelled unless you update your billing information.,legitimate
+distilbart,8,phishing,syntactic,3,"Unless billing information is updated by you, cancellation of your subscription will occur.",legitimate
+distilbart,9,phishing,manual,1,Security alert: Someone tried to log into your account from an unknown device. Click to secure it.,phishing
+distilbart,9,phishing,manual,2,We noticed a login attempt on your account from an unrecognized device. Please secure your account now.,phishing
+distilbart,9,phishing,manual,3,An unfamiliar device attempted to access your account. Take action immediately to protect it.,phishing
+distilbart,10,phishing,synonym,1,Your free trial has expired. Enter your credit card details to continue using the service.,legitimate
+distilbart,10,phishing,synonym,2,The free trial period has ended. Provide your payment information to keep using the service.,legitimate
+distilbart,10,phishing,synonym,3,Your complimentary trial is over. Submit your card details to maintain access.,legitimate
+distilbart,11,phishing,manual,1,Your email storage is full. Click here to upgrade your mailbox.,legitimate
+distilbart,11,phishing,manual,2,Your inbox has reached capacity. Follow this link to expand storage.,legitimate
+distilbart,11,phishing,manual,3,Your mailbox is out of space. Use the link below to restore access.,legitimate
+distilbart,12,phishing,synonym,1,Your tax refund is ready. Submit your banking details.,legitimate
+distilbart,12,phishing,synonym,2,Your refund is available. Provide bank information to receive it.,legitimate
+distilbart,12,phishing,synonym,3,Your tax return payment is pending. Enter your account details.,legitimate
+distilbart,13,phishing,syntactic,1,Your account will be locked unless you verify your phone number.,phishing
+distilbart,13,phishing,syntactic,2,"Unless you verify your phone number, your account will be locked.",phishing
+distilbart,13,phishing,syntactic,3,Verification of your phone number is required to prevent locking.,legitimate
+distilbart,14,phishing,manual,1,We could not process your payment. Update your card now.,legitimate
+distilbart,14,phishing,manual,2,Your payment failed. Please update your billing information.,legitimate
+distilbart,14,phishing,manual,3,There was a problem charging your card. Add new details now.,legitimate
+distilbart,15,phishing,synonym,1,You received a secure document. Open the link to view.,legitimate
+distilbart,15,phishing,synonym,2,A protected file was sent to you. Click to access it.,legitimate
+distilbart,15,phishing,synonym,3,A confidential document is waiting. Use the link to open it.,legitimate
+distilbart,16,phishing,manual,1,Your payroll deposit failed. Verify your account immediately.,legitimate
+distilbart,16,phishing,manual,2,We could not send your salary. Confirm your banking information.,legitimate
+distilbart,16,phishing,manual,3,Your paycheck was not processed. Update your details now.,legitimate
+distilbart,17,phishing,synonym,1,A new device accessed your account. Secure it now.,legitimate
+distilbart,17,phishing,synonym,2,Your account was opened from another device. Protect it immediately.,phishing
+distilbart,17,phishing,synonym,3,An unknown device logged into your account. Take action now.,phishing
+distilbart,18,phishing,syntactic,1,Your invoice is overdue. Pay now to avoid penalties.,legitimate
+distilbart,18,phishing,syntactic,2,"To avoid penalties, your overdue invoice must be paid now.",legitimate
+distilbart,18,phishing,syntactic,3,Payment is required now to avoid penalties on your overdue invoice.,legitimate
+distilbart,19,phishing,manual,1,Your files will be deleted unless you confirm your account.,legitimate
+distilbart,19,phishing,manual,2,Confirm your account or your files will be removed.,phishing
+distilbart,19,phishing,manual,3,You must verify your account to prevent file deletion.,legitimate
+distilbart,20,phishing,manual,1,You have been selected for a remote job. Send your details.,legitimate
+distilbart,20,phishing,manual,2,You qualify for a work-from-home job. Provide your information.,legitimate
+distilbart,20,phishing,manual,3,A remote opportunity is available. Share your details now.,legitimate
+distilbart,21,legitimate,manual,1,Your library books are due next week. You can renew them online if needed.,legitimate
+distilbart,21,legitimate,manual,2,This is a reminder that your library items are due next week. Online renewal is available.,legitimate
+distilbart,21,legitimate,manual,3,"Your borrowed books should be returned next week, or you may renew them through the library portal.",legitimate
+distilbart,22,legitimate,synonym,1,Your course registration has been completed successfully.,legitimate
+distilbart,22,legitimate,synonym,2,Your class enrollment was processed successfully.,legitimate
+distilbart,22,legitimate,synonym,3,Your registration for the course has been confirmed.,legitimate
+distilbart,23,legitimate,syntactic,1,The office will be closed on Monday for the holiday.,legitimate
+distilbart,23,legitimate,syntactic,2,"On Monday, the office will be closed because of the holiday.",legitimate
+distilbart,23,legitimate,syntactic,3,"Because of the holiday, the office will not be open on Monday.",legitimate
+distilbart,24,legitimate,manual,1,Your package was delivered today at 2:15pm.,legitimate
+distilbart,24,legitimate,manual,2,Delivery of your package was completed today at 2:15pm.,legitimate
+distilbart,24,legitimate,manual,3,Your shipment arrived today at 2:15pm.,legitimate
+distilbart,25,legitimate,synonym,1,Your receipt is attached for your recent purchase.,legitimate
+distilbart,25,legitimate,synonym,2,A copy of your receipt is included for your latest order.,legitimate
+distilbart,25,legitimate,synonym,3,Please find the receipt attached for your recent transaction.,legitimate
+distilbart,26,legitimate,syntactic,1,Your professor has posted feedback on your assignment.,legitimate
+distilbart,26,legitimate,syntactic,2,Feedback on your assignment has been posted by your professor.,legitimate
+distilbart,26,legitimate,syntactic,3,Your assignment now has feedback posted by your professor.,legitimate
+distilbart,27,legitimate,manual,1,Your appointment has been moved to Wednesday at 11am.,legitimate
+distilbart,27,legitimate,manual,2,We rescheduled your appointment for Wednesday at 11am.,legitimate
+distilbart,27,legitimate,manual,3,The new time for your appointment is Wednesday at 11am.,legitimate
+distilbart,28,legitimate,synonym,1,Your support request has been received.,legitimate
+distilbart,28,legitimate,synonym,2,We have received your help request.,legitimate
+distilbart,28,legitimate,synonym,3,Your customer service ticket has been submitted.,legitimate
+distilbart,29,legitimate,syntactic,1,The event starts at 6pm and doors open at 5:30pm.,legitimate
+distilbart,29,legitimate,syntactic,2,"Doors open at 5:30pm, and the event starts at 6pm.",legitimate
+distilbart,29,legitimate,syntactic,3,"At 5:30pm the doors will open, followed by the event at 6pm.",legitimate
+distilbart,30,legitimate,manual,1,Your account profile was updated successfully.,legitimate
+distilbart,30,legitimate,manual,2,The changes to your profile have been saved.,legitimate
+distilbart,30,legitimate,manual,3,Your profile information has been updated.,legitimate
+distilbart,31,legitimate,synonym,1,Thank you for your order. It will arrive in 3–5 days.,legitimate
+distilbart,31,legitimate,synonym,2,We appreciate your purchase. Delivery will take 3–5 days.,legitimate
+distilbart,31,legitimate,synonym,3,Your order is confirmed and will arrive within a few days.,legitimate
+distilbart,32,legitimate,syntactic,1,The meeting is scheduled for Friday at 2pm.,legitimate
+distilbart,32,legitimate,syntactic,2,Friday at 2pm is when the meeting is scheduled.,legitimate
+distilbart,32,legitimate,syntactic,3,The meeting will take place at 2pm on Friday.,legitimate
+distilbart,33,legitimate,manual,1,I am following up on our last discussion.,legitimate
+distilbart,33,legitimate,manual,2,Just checking in after our previous conversation.,legitimate
+distilbart,33,legitimate,manual,3,I wanted to reconnect after we spoke last week.,legitimate
+distilbart,34,legitimate,synonym,1,Your statement is ready. Log in to view it.,legitimate
+distilbart,34,legitimate,synonym,2,Your account statement is available. Please sign in.,legitimate
+distilbart,34,legitimate,synonym,3,This month's statement is ready to access online.,legitimate
+distilbart,35,legitimate,manual,1,Your appointment is confirmed for Monday.,legitimate
+distilbart,35,legitimate,manual,2,We have scheduled your appointment for Monday.,legitimate
+distilbart,35,legitimate,manual,3,Monday is set for your appointment.,legitimate
+distilbart,36,legitimate,synonym,1,Your application is under review.,legitimate
+distilbart,36,legitimate,synonym,2,We are reviewing your application.,legitimate
+distilbart,36,legitimate,synonym,3,Your submission is being evaluated.,legitimate
+distilbart,37,legitimate,syntactic,1,Please review the document and send feedback.,legitimate
+distilbart,37,legitimate,syntactic,2,Feedback should be sent after reviewing the document.,legitimate
+distilbart,37,legitimate,syntactic,3,"After reviewing the document, please provide feedback.",legitimate
+distilbart,38,legitimate,manual,1,Happy birthday! Enjoy your special discount.,legitimate
+distilbart,38,legitimate,manual,2,We added a birthday discount to your account.,legitimate
+distilbart,38,legitimate,manual,3,Celebrate with a discount we applied for your birthday.,legitimate
+distilbart,39,legitimate,synonym,1,Your password was updated successfully.,legitimate
+distilbart,39,legitimate,synonym,2,Your password has been changed.,legitimate
+distilbart,39,legitimate,synonym,3,Password update completed successfully.,legitimate
+distilbart,40,legitimate,manual,1,Your package was delivered today.,legitimate
+distilbart,40,legitimate,manual,2,We delivered your package earlier today.,legitimate
+distilbart,40,legitimate,manual,3,Your shipment arrived today.,legitimate
+distilbart,41,phishing,synonym,1,Your email account will be deactivated. Confirm your credentials now.,phishing
+distilbart,41,phishing,synonym,2,Your mailbox will be disabled. Verify your login details immediately.,phishing
+distilbart,41,phishing,synonym,3,Your email access will be removed. Validate your account information now.,phishing
+distilbart,42,phishing,syntactic,1,You must confirm your identity to avoid losing access to your account.,legitimate
+distilbart,42,phishing,syntactic,2,"To avoid losing access to your account, your identity must be confirmed.",legitimate
+distilbart,42,phishing,syntactic,3,Confirmation of your identity is required to prevent loss of account access.,legitimate
+distilbart,43,phishing,manual,1,Your Netflix subscription has been paused. Update payment details to resume.,legitimate
+distilbart,43,phishing,manual,2,We were unable to process your Netflix payment. Please update your billing to continue service.,legitimate
+distilbart,43,phishing,manual,3,Your Netflix account is on hold due to a payment issue. Add new billing information to reactivate.,legitimate
+distilbart,44,phishing,synonym,1,Your account was flagged for suspicious activity. Secure it now.,phishing
+distilbart,44,phishing,synonym,2,Suspicious behavior was detected on your account. Protect it immediately.,phishing
+distilbart,44,phishing,synonym,3,Your account has unusual activity. Take action now to secure it.,phishing
+distilbart,45,phishing,syntactic,1,Your storage will be permanently deleted if you do not upgrade your plan.,legitimate
+distilbart,45,phishing,syntactic,2,"If you do not upgrade your plan, your storage will be permanently deleted.",legitimate
+distilbart,45,phishing,syntactic,3,Permanent deletion of your storage will occur unless your plan is upgraded.,legitimate
+distilbart,46,phishing,manual,1,You have received a voice message. Click here to listen to it.,legitimate
+distilbart,46,phishing,manual,2,A new voicemail is waiting for you. Access it using the link provided.,legitimate
+distilbart,46,phishing,manual,3,You got a new voice message. Follow the link to hear it.,legitimate
+distilbart,47,phishing,synonym,1,Your account verification is incomplete. Finish it now.,legitimate
+distilbart,47,phishing,synonym,2,Your account validation is pending. Complete it immediately.,legitimate
+distilbart,47,phishing,synonym,3,Your verification process is not finished. Finalize it now.,legitimate
+distilbart,48,phishing,syntactic,1,Your payment method needs to be updated to avoid service disruption.,legitimate
+distilbart,48,phishing,syntactic,2,"To avoid service disruption, your payment method needs to be updated.",legitimate
+distilbart,48,phishing,syntactic,3,Updating your payment method is required to prevent service disruption.,legitimate
+distilbart,49,phishing,manual,1,Your Amazon account has been locked. Verify your details to unlock it.,legitimate
+distilbart,49,phishing,manual,2,We locked your Amazon account due to unusual activity. Please confirm your information.,legitimate
+distilbart,49,phishing,manual,3,Access to your Amazon account is restricted. Submit your details to restore access.,legitimate
+distilbart,50,phishing,synonym,1,You have an unpaid fine. Pay now to avoid legal action.,legitimate
+distilbart,50,phishing,synonym,2,A penalty remains unpaid. Settle it immediately to prevent legal consequences.,legitimate
+distilbart,50,phishing,synonym,3,You owe a fine. Make payment now to avoid legal issues.,legitimate
+distilbart,51,legitimate,synonym,1,Your order has shipped and is on the way.,legitimate
+distilbart,51,legitimate,synonym,2,Your purchase has been dispatched and is in transit.,legitimate
+distilbart,51,legitimate,synonym,3,Your package has been sent and will arrive soon.,legitimate
+distilbart,52,legitimate,syntactic,1,Your grade has been posted to the student portal.,legitimate
+distilbart,52,legitimate,syntactic,2,The student portal now shows your grade.,legitimate
+distilbart,52,legitimate,syntactic,3,Your grade is now available in the student portal.,legitimate
+distilbart,53,legitimate,manual,1,Reminder: Your rent payment is due on the 1st of the month.,legitimate
+distilbart,53,legitimate,manual,2,This is a reminder that rent is due on the first of each month.,legitimate
+distilbart,53,legitimate,manual,3,Please remember your rent should be paid by the 1st.,legitimate
+distilbart,54,legitimate,synonym,1,Your ticket has been successfully booked.,legitimate
+distilbart,54,legitimate,synonym,2,Your reservation has been confirmed.,legitimate
+distilbart,54,legitimate,synonym,3,Your booking was completed successfully.,legitimate
+distilbart,55,legitimate,syntactic,1,The system will undergo maintenance tonight from 12am to 2am.,legitimate
+distilbart,55,legitimate,syntactic,2,"From 12am to 2am tonight, the system will undergo maintenance.",legitimate
+distilbart,55,legitimate,syntactic,3,Maintenance will occur tonight between 12am and 2am.,legitimate
+distilbart,56,legitimate,manual,1,Thanks for attending the workshop. We hope you found it useful.,legitimate
+distilbart,56,legitimate,manual,2,We appreciate your participation in the workshop. Hope it was helpful.,legitimate
+distilbart,56,legitimate,manual,3,Thank you for joining the session. We hope it added value for you.,legitimate
+distilbart,57,legitimate,synonym,1,Your refund has been processed successfully.,legitimate
+distilbart,57,legitimate,synonym,2,Your reimbursement has been completed.,legitimate
+distilbart,57,legitimate,synonym,3,The refund for your transaction has been issued.,legitimate
+distilbart,58,legitimate,syntactic,1,You can download your report from the dashboard.,legitimate
+distilbart,58,legitimate,syntactic,2,"From the dashboard, your report can be downloaded.",legitimate
+distilbart,58,legitimate,syntactic,3,Your report is available for download on the dashboard.,legitimate
+distilbart,59,legitimate,manual,1,Your subscription will renew automatically next month.,legitimate
+distilbart,59,legitimate,manual,2,"Next month, your subscription will renew on its own.",legitimate
+distilbart,59,legitimate,manual,3,Your plan is set to auto-renew in the upcoming month.,legitimate
+distilbart,60,legitimate,synonym,1,Your password was updated successfully.,legitimate
+distilbart,60,legitimate,synonym,2,Your account password has been changed.,legitimate
+distilbart,60,legitimate,synonym,3,The password update for your account was completed.,legitimate

@@ -1,0 +1,633 @@
+\documentclass[11pt]{article}
+
+% --- Page layout ---
+\usepackage[margin=1in]{geometry}
+
+% --- Fonts & typography ---
+\usepackage{times}
+\usepackage{microtype}
+
+% --- Math ---
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{makecell}
+
+% --- Graphics ---
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{pgfplotstable}
+
+% --- References & links ---
+\usepackage{natbib}
+\setlength{\bibsep}{4pt}
+\usepackage{hyperref}
+\usepackage{url}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdftitle={Consistency Without Comprehension: Multi-Model Evidence for Statistical Bias in Zero-Shot Phishing Detection},
+    pdfauthor={Bhawna Tyagi}
+}
+
+% --- Compact section spacing ---
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.5ex minus 0.2ex}{0.9ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{1.1ex plus 0.4ex minus 0.2ex}{0.6ex plus 0.1ex}
+
+% --- Color ---
+\usepackage{xcolor}
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{modelbart}{RGB}{55,106,173}
+\definecolor{modelroberta}{RGB}{29,158,117}
+\definecolor{modeldeberta}{RGB}{216,90,48}
+\definecolor{modeldistil}{RGB}{171,83,126}
+
+% --- Misc ---
+\usepackage{enumitem}
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf}
+\usepackage{subcaption}
+\usepackage{footnote}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+%=======================================================================
+\title{\textbf{Consistency Without Comprehension:\\[4pt]
+Multi-Model Evidence for Statistical Bias\\[2pt]
+in Zero-Shot Phishing Detection}\\[6pt]
+\large An Empirical Study Across Four NLI Architectures}
+
+\author{
+  Bhawna Tyagi \\
+  University of Massachusetts Amherst \\
+  \texttt{btyagi@umass.edu}
+}
+
+\date{}
+%=======================================================================
+
+\begin{document}
+
+\maketitle
+
+%-----------------------------------------------------------------------
+\begin{abstract}
+%-----------------------------------------------------------------------
+We investigate whether language-model-based classifiers exhibit semantic understanding or primarily exploit statistical surface patterns, using phishing email detection as a diagnostic domain. We introduce a controlled evaluation framework based on \textbf{paraphrase consistency}: a model with robust semantic representations should assign identical labels to all meaning-preserving variants of an input. We construct a dataset of \textbf{60 paraphrase groups} (180 short email messages) spanning three transformation types---synonym substitution, syntactic restructuring, and manual rewriting---balanced across phishing and legitimate classes. We evaluate four zero-shot NLI classifiers: \texttt{facebook/bart-large-mnli}, \texttt{roberta-large-mnli}, \texttt{MoritzLaurer/deberta-v3-large-zeroshot-v2.0}, and 
+
+\texttt{valhalla/distilbart-mnli-12-3}, and quantify output stability with a \textbf{Consistency Score (CS)} and a \textbf{Consistent-Bias Rate (CBR)}.
+
+Our results show a dissociation between consistency and accuracy that recurs across architectures. Three of four models achieve high CS (0.85--0.92) while attaining only 60--62\% overall accuracy, driven by failure on phishing inputs (phishing accuracy 20.0\%--24.4\%); for 60--73\% of phishing groups these models label every variant ``legitimate.'' This pattern---high consistency with systematic misclassification---suggests a strong bias toward the ``legitimate'' label that stable predictions reproduce rather than correct. In contrast, DeBERTa-v3 achieves 91.7\% accuracy at a lower CS of 0.8167 and a CBR of 0.033. Qualitative analysis shows that the biased models flag mainly account-security messages while missing financial, reward, and delivery lures, and that in some groups only the variant containing a cue such as ``Action required'' is flagged. We argue that CS should be reported alongside per-class accuracy and CBR, because high consistency alone is not evidence of understanding: a constant-output classifier is perfectly consistent.
+
+\smallskip
+\noindent\textbf{Keywords:} large language models, semantic understanding, consistency evaluation, natural language inference, phishing detection, zero-shot classification, statistical bias, paraphrase robustness
+\end{abstract}
+
+%-----------------------------------------------------------------------
+\section{Introduction}
+%-----------------------------------------------------------------------
+
+The past several years have witnessed remarkable progress in large language models (LLMs), which now achieve state-of-the-art performance across text classification, question answering, summarization, and code synthesis \citep{brown2020language,wei2022chain,chowdhery2022palm,touvron2023llama}. This success has generated optimism---and debate---about the nature of language model capabilities. Do these systems understand language, or are they exceptionally sophisticated pattern matchers?
+
+This question is not merely philosophical. In safety-critical domains---phishing detection, clinical NLP, legal reasoning---a system that appears capable but is actually exploiting distributional shortcuts poses serious deployment risks. A model that confidently misclassifies entire categories of inputs while appearing reliable on aggregate benchmarks is, in some ways, \textit{more} dangerous than one whose failures are random and therefore more visible.
+
+We approach this question through the lens of \textbf{paraphrase consistency}: if a model genuinely understands meaning, it should produce identical outputs for semantically equivalent inputs regardless of surface form. Inconsistency under meaning-preserving transformations is direct evidence of surface-level pattern matching. But consistency alone is insufficient for understanding---a model that always predicts the same class will be perfectly consistent while being systematically wrong. We therefore treat the joint distribution of consistency and per-class accuracy as the diagnostic signal.
+
+Our contribution is both empirical and methodological. We evaluate paraphrase consistency in zero-shot phishing classification across four NLI-based classifiers on a 60-group dataset. Three models exhibit what we call the \textit{consistent-bias} failure mode, while one (DeBERTa-v3) breaks from this pattern at the cost of reduced consistency. This contrast raises questions about how training data and architecture relate to robustness under paraphrase.
+
+\paragraph{Contributions.}
+\begin{enumerate}[leftmargin=*, itemsep=2pt]
+  \item We expand the evaluation framework to \textbf{four architecturally distinct zero-shot NLI models} and \textbf{60 paraphrase groups} (three times the size of our earlier 20-group pilot), enabling cross-model comparison.
+  \item We characterize a novel failure taxonomy: \textit{consistent-bias} (high CS, low phishing accuracy) vs.\ \textit{semantic-sensitive} (lower CS, high accuracy), and show that the two profiles are separable in our data.
+  \item We demonstrate that the consistent-bias pattern is \textbf{cross-architecturally stable} across BART, RoBERTa, and DistilBART, consistent with a shared training-data property rather than a model-specific artifact.
+  \item We provide a qualitative analysis of which phishing themes and surface cues the biased models respond to.
+  \item We release our dataset, evaluation code, and predictions at \url{https://github.com/btyagi-code/consistency-without-comprehension}.
+\end{enumerate}
+
+%-----------------------------------------------------------------------
+\section{Related Work}
+%-----------------------------------------------------------------------
+
+\subsection{Semantic Understanding and Surface Heuristics in NLP Models}
+
+The question of whether neural models encode meaning or exploit surface statistics has been central to NLP research since the probing literature emerged. \citet{tenney2019bert} and \citet{jawahar2019does} demonstrated that BERT \citep{devlin2019bert} encodes rich syntactic and semantic structure; however, subsequent work revealed that high task performance does not imply genuine comprehension. \citet{niven2019probing} showed that NLI models exploit spurious lexical cues, and \citet{mccoy2019right} demonstrated that they rely on syntactic heuristics such as lexical overlap rather than logical entailment. \citet{bender2020climbing} argued theoretically that form-meaning mappings cannot be reliably learned from distributional data alone, a position supported by \citet{bender2021dangers}.
+
+Our work extends this tradition by demonstrating that the consistent-bias failure mode---high consistency coexisting with systematic class-level misclassification---is a \textit{cross-architectural} phenomenon in zero-shot NLI classifiers, not a property of any single model.
+
+\subsection{Robustness to Paraphrase and Linguistic Variation}
+
+\citet{ribeiro2020beyond} introduced CheckList, a behavioral testing framework revealing that state-of-the-art models fail on simple linguistic perturbations. \citet{garg2020bae} showed substantial performance degradation under adversarial word substitutions, and \citet{khashabi2020more} demonstrated that reading comprehension models are highly sensitive to question rewriting. In the prompt sensitivity literature, \citet{lu2021fantastically} found dramatic GPT-3 performance variance from prompt ordering, and \citet{zhao2021calibrate} showed that label biases substantially distort few- and zero-shot predictions.
+
+Our work differs from these robustness studies in emphasis: CS is \textit{independent of ground-truth labels} and can therefore be monitored without gold annotations, while CBR uses labels to show whether stable predictions are stably wrong.
+
+\subsection{Zero-Shot Classification via NLI}
+
+\citet{yin2019benchmarking} established the paradigm of repurposing NLI models for zero-shot classification via textual entailment, which \citet{wolf2020transformers} operationalized in the Hugging Face pipeline used throughout this work. \citet{desai2020calibration} examined the calibration of pre-trained transformers, including on NLI tasks. Our work contributes domain-specific evaluation in the security-critical setting of phishing detection, where the consequences of systematic misclassification are severe.
+
+\subsection{Bias and Label Priors in LLMs}
+
+LLMs are known to encode and amplify biases from training data \citep{bolukbasi2016man,sheng2019woman,bender2021dangers}. In zero-shot classification, \citet{zhao2021calibrate} showed that label priors from pretraining substantially distort output distributions. Our results are consistent with this mechanism: the strong tendency of BART, RoBERTa, and DistilBART to predict ``legitimate'' on phishing inputs may reflect label-frequency effects in training data, where ordinary communications far outnumber phishing examples, although we do not test this directly. The contrast with DeBERTa-v3, which overcomes this bias, merits investigation into what architectural or training differences enable this.
+
+%-----------------------------------------------------------------------
+\section{Method}
+%-----------------------------------------------------------------------
+
+\subsection{Task Formulation}
+
+We frame evaluation as binary zero-shot classification: given an email message $x$, predict $f(x) \in \{\textit{phishing}, \textit{legitimate}\}$. The central objective is not to maximize accuracy but to diagnose the \textit{joint} distribution of consistency and accuracy, which we argue is necessary to distinguish semantic understanding from biased pattern matching.
+
+Formally, let $\mathcal{G} = \{G_1, \ldots, G_N\}$ be a collection of paraphrase groups where each $G_i = \{x_{i,1}, x_{i,2}, x_{i,3}\}$ contains three variants sharing ground-truth label $y_i \in \{\textit{phishing}, \textit{legitimate}\}$. All variants are semantically equivalent by construction. A semantically capable model should satisfy $f(x_{i,1}) = f(x_{i,2}) = f(x_{i,3}) = y_i$ for all $i$.
+
+\subsection{Dataset Construction}
+
+We construct a dataset of \textbf{60 paraphrase groups}---30 phishing and 30 legitimate---each containing three variants, for 180 total classification instances. Each instance is a short (one- or two-sentence) email message written by the author; no messages come from real mailboxes. Phishing groups have IDs 1--20 and 41--50, and legitimate groups have IDs 21--40 and 51--60. The dataset is three times the size of our earlier 20-group pilot and is balanced across classes.
+
+\paragraph{Transformation types.} Each group is associated with one of three transformation strategies:
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+  \item \textbf{Synonym substitution} (22 groups): Word- and phrase-level replacements preserving denotative meaning while altering surface form (e.g., \textit{suspended} $\rightarrow$ \textit{deactivated} $\rightarrow$ \textit{disabled}; \textit{confirm} $\rightarrow$ \textit{verify} $\rightarrow$ \textit{validate}).
+  \item \textbf{Syntactic restructuring} (16 groups): Structural transformations including active-to-passive voice conversion, clause reordering, topicalization, and nominalization, preserving propositional content.
+  \item \textbf{Manual rewriting} (22 groups): Holistic reformulations by a human annotator that preserve pragmatic intent, communicative goal, and informational content while substantially altering surface expression.
+\end{itemize}
+
+All variants were checked by manual inspection for semantic equivalence. Dataset statistics are summarized in Table~\ref{tab:dataset}.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Dataset statistics by label and transformation type.}
+\label{tab:dataset}
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Split} & \textbf{Synonym} & \textbf{Syntactic} & \textbf{Manual} & \textbf{Total} \\
+\midrule
+Phishing   & 11 & 8 & 11 & 30 \\
+Legitimate & 11 & 8 & 11 & 30 \\
+\midrule
+Total      & 22 & 16 & 22 & 60 \\
+\midrule
+\multicolumn{4}{l}{Total variants (3 per group)} & 180 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Models}
+
+We evaluate four zero-shot NLI classifiers applied via the Hugging Face \texttt{transformers} pipeline \citep{wolf2020transformers}. Each model assigns a probability to candidate labels [\textit{phishing}, \textit{legitimate}] via entailment scoring; we take the argmax as the prediction. No few-shot examples, chain-of-thought prompting, or fine-tuning are applied. Inference is deterministic; no sampling is involved.
+
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+  \item \textbf{BART} (\texttt{facebook/bart-large-mnli}): A 400M-parameter sequence-to-sequence model fine-tuned on MultiNLI \citep{williams2018broad}. Establishes the baseline from prior work.
+  \item \textbf{RoBERTa} (\texttt{roberta-large-mnli}): A 355M-parameter encoder model with optimized BERT pretraining, fine-tuned on MultiNLI \citep{liu2019roberta}. Provides an encoder-only comparison to BART.
+  \item \textbf{DeBERTa-v3} (\texttt{MoritzLaurer/deberta-v3-large-zeroshot-v2.0}): A model with a 304M-parameter backbone, disentangled attention, and enhanced mask decoder, fine-tuned on a multi-dataset NLI mixture \citep{he2021deberta}. Represents a more recent NLI architecture.
+  \item \textbf{DistilBART} (\texttt{valhalla/distilbart-mnli-12-3}): A distilled BART variant with 12 encoder and 3 decoder layers, offering a smaller comparison point.
+\end{enumerate}
+
+\subsection{Evaluation Metrics}
+
+\paragraph{Consistency Score (CS).} For $N$ paraphrase groups with $k_i$ variants each:
+\begin{equation}
+  \text{CS} = \frac{1}{N} \sum_{i=1}^{N} \mathbf{1}\!\left[ f(x_{i,1}) = f(x_{i,2}) = \cdots = f(x_{i,k_i}) \right]
+  \label{eq:cs}
+\end{equation}
+CS is the proportion of groups for which the model assigns identical labels to all variants. CS $\in [0, 1]$, with CS $= 1.0$ indicating perfect consistency. For a random binary classifier with $k=3$, the expected CS is $(1/2)^{k-1} = 0.25$.
+
+\paragraph{Accuracy.} Standard label-prediction accuracy, computed overall and per class. We distinguish \textit{phishing accuracy} ($\text{Acc}_\phi$) and \textit{legitimate accuracy} ($\text{Acc}_\ell$) to expose class-level asymmetries masked by aggregate metrics.
+
+\paragraph{Consistent-Bias Rate (CBR).} The proportion of phishing groups for which the model predicts ``legitimate'' for \textit{all} variants---i.e., consistent misclassification:
+\begin{equation}
+  \text{CBR} = \frac{|\{G_i : y_i = \textit{phishing},\ f(x_{i,j}) = \textit{legitimate}\ \forall j\}|}{|\{G_i : y_i = \textit{phishing}\}|}
+  \label{eq:cbr}
+\end{equation}
+CBR directly measures the stable-bias failure mode and complements CS by attributing its source. A random binary classifier has an expected CBR of $(1/2)^3 = 0.125$.
+
+\subsection{Experimental Setup}
+
+Each variant is submitted as an independent, isolated query with no information about group membership or other variants. The message text is passed directly as the input sequence, with candidate labels [\textit{phishing}, \textit{legitimate}] and the pipeline's default hypothesis template (``This example is \{\}.''); the exact call is given in Appendix~\ref{app:prompt}.
+
+Predicted labels are recorded for all 180 instances $\times$ 4 models = 720 total classifications.
+
+%-----------------------------------------------------------------------
+\section{Results}
+%-----------------------------------------------------------------------
+
+\subsection{Overall Consistency and Accuracy}
+\label{sec:overall}
+
+Table~\ref{tab:overall} presents overall CS and accuracy for all four models alongside the random baseline.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Overall results. Random-baseline values are expectations for a uniformly random binary classifier ($k=3$). Models ranked by accuracy.}
+\label{tab:overall}
+\setlength{\tabcolsep}{9pt}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{CS} & \textbf{Accuracy} & \textbf{CBR} & \textbf{Groups} \\
+\midrule
+DeBERTa-v3       & 0.8167 & \textbf{0.9167} & 0.0333 & 60 \\
+RoBERTa          & 0.8500 & 0.6222 & 0.6000 & 60 \\
+BART             & 0.9000 & 0.6000 & 0.7000 & 60 \\
+DistilBART       & 0.9167 & 0.6000 & 0.7333 & 60 \\
+\midrule
+Random baseline  & 0.2500 & 0.5000 & 0.1250 & 60 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The results reveal two distinct behavioral regimes. \textbf{BART, RoBERTa, and DistilBART} all achieve high CS (0.85--0.92) while reaching only 60--62\% accuracy, with CBR between 0.60 and 0.73---meaning 60--73\% of phishing groups are \textit{consistently} misclassified as legitimate across all three variants. \textbf{DeBERTa-v3} breaks this pattern, achieving 91.7\% accuracy at a lower CS of 0.8167 and a CBR of 0.0333 (one phishing group). Model size alone does not obviously explain the gap, since BART-large and RoBERTa-large are of broadly similar scale to DeBERTa-v3-large.
+
+\subsection{Consistency by Paraphrase Type}
+\label{sec:paraphrase_type}
+
+Table~\ref{tab:paraphrase} presents CS broken down by transformation type for each model.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Consistency Score by paraphrase transformation type. Best per-row in \textbf{bold}.}
+\label{tab:paraphrase}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Paraphrase Type} & \textbf{BART} & \textbf{RoBERTa} & \textbf{DeBERTa-v3} & \textbf{DistilBART} \\
+\midrule
+Synonym substitution    & \textbf{0.9545} & \textbf{0.9545} & 0.8636 & \textbf{0.9545} \\
+Syntactic restructuring & \textbf{0.9375} & 0.8750 & 0.8750 & 0.8750 \\
+Manual rewriting        & 0.8182 & 0.7273 & 0.7273 & \textbf{0.9091} \\
+\midrule
+Groups (total) & 60 & 60 & 60 & 60 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three cross-model patterns emerge. First, \textbf{synonym substitution yields the highest CS for three of four models} (DeBERTa-v3 is slightly more consistent on syntactic restructuring), suggesting that word-level lexical changes are least disruptive to model predictions---whether those predictions are correct or not. Second, \textbf{manual rewriting yields the lowest CS} for three of four models, consistent with the hypothesis that holistic reformulations may shift framing in ways that activate different statistical associations. Third, \textbf{DistilBART is a notable exception}, maintaining high CS on manual rewrites (0.9091), suggesting stronger invariance to holistic surface change, though at no benefit to accuracy.
+
+\subsection{Consistency and Accuracy by Label Class}
+\label{sec:by_class}
+
+Table~\ref{tab:label} reveals the critical class-level asymmetry underlying the aggregate results.
+
+\begin{table}[h]
+\centering
+\small
+\caption{CS and accuracy by ground-truth label class. The consistent-bias failure mode is visible in phishing accuracy for BART, RoBERTa, and DistilBART.}
+\label{tab:label}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Label} & \textbf{Metric} & \textbf{BART} & \textbf{RoBERTa} & \textbf{DeBERTa-v3} & \textbf{DistilBART} \\
+\midrule
+\multirow{2}{*}{Phishing}
+  & CS       & 0.8000 & 0.7000 & 0.8333 & 0.8333 \\
+  & Accuracy & 0.2000 & 0.2444 & \textbf{0.9111} & 0.2000 \\
+\midrule
+\multirow{2}{*}{Legitimate}
+  & CS       & \textbf{1.0000} & \textbf{1.0000} & 0.8000 & \textbf{1.0000} \\
+  & Accuracy & \textbf{1.0000} & \textbf{1.0000} & 0.9222 & \textbf{1.0000} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The asymmetry is stark. For BART, RoBERTa, and DistilBART, legitimate accuracy is perfect (100\%) while phishing accuracy is far below chance (20.0\%--24.4\%). Phishing errors are predominantly \textit{consistent}: these models predict ``legitimate'' for all three variants in 60--73\% of phishing groups (CBR $= 0.60$--$0.73$). This is the signature of the consistent-bias failure mode: the models are not randomly confused by phishing content but behave as if a stable preference for ``legitimate'' overrides the content of most phishing messages.
+
+DeBERTa-v3 exhibits a qualitatively different profile: 91.1\% phishing accuracy and 92.2\% legitimate accuracy, with a legitimate CS of 0.80. It is more \textit{sensitive} to phishing content, at the cost of some inconsistency on legitimate inputs---a profile consistent with a model that reacts to content rather than defaulting to one label.
+
+\subsection{Inconsistent Group Analysis}
+\label{sec:inconsistent}
+
+Table~\ref{tab:inconsistent} lists the groups that produced inconsistent predictions for each model.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Inconsistent group IDs by model. Phishing groups are 1--20 and 41--50; legitimate groups are 21--40 and 51--60.}
+\label{tab:inconsistent}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{lp{9cm}}
+\toprule
+\textbf{Model} & \textbf{Inconsistent group IDs} \\
+\midrule
+BART       & 6, 13, 16, 17, 19, 49 \\
+RoBERTa    & 2, 6, 9, 13, 16, 17, 19, 43, 49 \\
+DeBERTa-v3 & 5, 9, 13, 20, 34, 38, 39, 43, 53, 59, 60 \\
+DistilBART & 2, 6, 13, 17, 19 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Several patterns are notable. \textbf{Group 13} is inconsistent for all four models, and Groups 6, 17, and 19 for three of four, suggesting that their content lies near a decision boundary that wording can push either way. \textbf{DeBERTa-v3 shows the most distinct inconsistency profile}: six of its eleven inconsistent groups are legitimate (34, 38, 39, 53, 59, 60), whereas every inconsistent group for BART, RoBERTa, and DistilBART is a phishing group. This difference is consistent with DeBERTa-v3's inconsistencies reflecting sensitivity to content in both classes rather than a one-sided label bias.
+
+\subsection{Qualitative Analysis: Trigger Phrase Sensitivity}
+\label{sec:qualitative}
+
+We examine Group 6 (phishing, manual rewriting), which is inconsistent for BART, RoBERTa, and DistilBART. Labels shown are those assigned by BART and RoBERTa:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+  \item \textbf{V1} $[\textsc{phishing}\ \cmark]$: \textit{``Action required: Your PayPal account has been limited. Please verify your information.''}
+  \item \textbf{V2} $[\textsc{legitimate}\ \xmark]$: \textit{``Important notice: Limitations have been placed on your PayPal account. Verification of your information is needed.''}
+  \item \textbf{V3} $[\textsc{legitimate}\ \xmark]$: \textit{``Your PayPal account is now limited and requires your attention. Please confirm your details to continue.''}
+\end{itemize}
+
+BART and RoBERTa classify only V1, which opens with \textit{``Action required,''} as phishing; DistilBART flags V1 and V2, and DeBERTa-v3 flags all three. V2 and V3 convey the same content---an account limitation requiring the user to supply information---yet BART and RoBERTa label them legitimate. This is consistent with these models responding to a surface cue rather than to the meaning of the message. Group 17 shows a similar pattern: ``A new device accessed your account. Secure it now.'' is labeled legitimate by BART, RoBERTa, and DistilBART, while its two paraphrases are labeled phishing.
+
+At the level of themes, the phishing messages that BART and DistilBART flag concern account security: unusual activity, unknown devices, and locked accounts (e.g., Groups 2, 9, 13, 17, and 44). Messages built around rewards, deliveries, payments, invoices, job offers, or voice messages are labeled legitimate on every variant, even when they contain a direct call to action such as ``Click here immediately'' (Group 1, flagged only by RoBERTa). The biased models thus appear to recognize one familiar style of phishing while missing others, which is consistent with reliance on learned associations rather than on the intent of the message.
+
+DeBERTa-v3 correctly classifies all three variants in 24 of 30 phishing groups, suggesting that its training on a broader and more diverse NLI mixture may have attenuated this particular lexical bias, enabling more content-sensitive inference.
+
+%-----------------------------------------------------------------------
+\section{Discussion}
+%-----------------------------------------------------------------------
+
+\subsection{The Consistent-Bias Failure Mode}
+
+Our central finding is the empirical characterization and cross-architectural validation of the \textit{consistent-bias} failure mode: models that achieve high CS while exhibiting far-below-chance accuracy on one class. To our knowledge, this pattern has not been characterized in the paraphrase-consistency literature.
+
+The failure mode is concerning precisely because high CS can create the appearance of reliability. An operator deploying BART for phishing detection and measuring only aggregate accuracy (60\%) and CS (0.90) might conclude they have a stable, reasonable classifier. In fact, the model fails to detect 80\% of phishing messages---while doing so \textit{consistently}, meaning the failures are not random noise but a systematic blind spot that cannot be corrected through resampling or ensemble averaging over the same model class.
+
+We propose that CS is a necessary but not sufficient condition for semantic understanding, and that \textbf{CBR provides the missing diagnostic}: a model with high CS and high CBR is exhibiting stable bias, not stable comprehension.
+
+\subsection{DeBERTa-v3 as a Counterexample}
+
+DeBERTa-v3 achieves 91.7\% accuracy---29 to 32 points higher than BART, RoBERTa, and DistilBART---at a lower but comparable CS (0.8167). This suggests that the consistent-bias failure mode is \textit{not} an inherent property of zero-shot NLI classification, but depends on specific models and training configurations. 
+
+Two hypotheses merit investigation. First, DeBERTa-v3 is fine-tuned on a multi-dataset NLI mixture rather than MultiNLI alone, which may provide greater coverage of semantic patterns including threat-related language. Second, the disentangled attention mechanism in DeBERTa \citep{he2021deberta} separates positional and content attention, potentially enabling better generalization beyond surface lexical cues. We leave systematic investigation of these factors to future work.
+
+\subsection{Manual Rewriting as the Most Diagnostic Transformation}
+
+Across all models, manual rewriting yields the lowest CS (except DistilBART), suggesting that holistic reformulation is the most challenging transformation type for these models. This finding has practical implications: manual rewriting---which resembles how phishing emails are crafted in practice, by humans who understand how to rephrase while preserving intent---is precisely the condition under which biased classifiers are most likely to fail. A classifier that achieves high CS on synonym substitution but low CS on manual rewriting offers limited real-world security value.
+
+\subsection{Implications for Evaluation Practice}
+
+Current NLP evaluation relies on fixed benchmark datasets with standardized phrasings. Our results suggest this practice systematically overestimates model robustness by conflating label accuracy with semantic comprehension. We recommend the following additions to standard evaluation suites for safety-critical NLP:
+
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+  \item Report CS alongside accuracy, decomposed by class and transformation type.
+  \item Report CBR for any deployment context where one-class failure has asymmetric consequences (e.g., phishing detection, medical diagnosis, fraud detection).
+  \item Include manual rewriting as a required transformation type, as it most closely approximates adversarial real-world variation.
+  \item Flag models with high aggregate CS and CBR $> 0.5$ as exhibiting stable bias, regardless of aggregate accuracy.
+\end{enumerate}
+
+\subsection{Limitations}
+
+Our study has several limitations. The dataset, while three times larger than our pilot, remains small: with 30 groups per class, differences of a few groups between models are within sampling noise, and we report no confidence intervals or significance tests. Messages are short texts without headers, links, or attachments, unlike real emails. Each model was run once with the default hypothesis template, and results may vary with template wording or library versions. The domain is restricted to phishing classification; behavior may differ in other domains or with other label sets. Paraphrases were written and verified by a single annotator, and Groups 39 and 60 share one identical variant. We evaluate zero-shot NLI classifiers; instruction-tuned LLMs such as GPT-4 or LLaMA-3 \citep{touvron2023llama} may exhibit different consistency profiles. Finally, we do not probe internal representations to mechanistically explain why DeBERTa-v3 overcomes the bias that afflicts the other models---this is an important direction for future work.
+
+%-----------------------------------------------------------------------
+\section{Conclusion}
+%-----------------------------------------------------------------------
+
+We presented a multi-architecture evaluation of paraphrase consistency in zero-shot phishing classification, introducing the Consistent-Bias Rate (CBR) to complement the Consistency Score (CS) as a diagnostic for systematic label bias. Across 60 paraphrase groups and four NLI-based zero-shot classifiers, we documented a failure mode shared by three architectures: BART, RoBERTa, and DistilBART achieve high CS (0.85--0.92) while correctly classifying only 20.0\%--24.4\% of phishing inputs, with 60--73\% of phishing groups consistently misclassified across all three variants. DeBERTa-v3 provides a counterexample, achieving 91.7\% accuracy at comparable CS, which shows that the consistent-bias failure mode is not inevitable in zero-shot NLI classification.
+
+Our findings have immediate practical implications: high consistency is not evidence of semantic understanding, and models exhibiting the consistent-bias pattern provide false assurance of reliability in precisely the cases where reliability matters most. We recommend reporting CS, per-class accuracy, and CBR together when evaluating classifiers for safety-critical domains.
+
+\paragraph{Data and code availability.} The dataset, evaluation code, original-run predictions, and scripts that reproduce every table are available at \url{https://github.com/btyagi-code/consistency-without-comprehension}.
+
+%-----------------------------------------------------------------------
+% REFERENCES
+%-----------------------------------------------------------------------
+\newpage
+\begingroup
+\small
+\setlength{\bibsep}{3pt}
+\bibliographystyle{plainnat}
+
+\begin{thebibliography}{99}
+
+\bibitem[Bender and Koller(2020)]{bender2020climbing}
+Bender, E.~M., Koller, A. (2020).
+\newblock Climbing towards NLU: On meaning, form, and understanding in the age of data.
+\newblock In \textit{Proceedings of ACL}, pp. 5185--5198.
+
+\bibitem[Bender et al.(2021)]{bender2021dangers}
+Bender, E.~M., Gebru, T., McMillan-Major, A., Shmitchell, S. (2021).
+\newblock On the dangers of stochastic parrots: Can language models be too big?
+\newblock In \textit{Proceedings of FAccT}, pp. 610--623.
+
+\bibitem[Bolukbasi et al.(2016)]{bolukbasi2016man}
+Bolukbasi, T., Chang, K.-W., Zou, J.~Y., Saligrama, V., Kalai, A.~T. (2016).
+\newblock Man is to computer programmer as woman is to homemaker? Debiasing word embeddings.
+\newblock In \textit{Advances in NeurIPS}, Vol. 29.
+
+\bibitem[Brown et al.(2020)]{brown2020language}
+Brown, T.~B., et al. (2020).
+\newblock Language models are few-shot learners.
+\newblock In \textit{Advances in NeurIPS}, Vol. 33, pp. 1877--1901.
+
+\bibitem[Chowdhery et al.(2022)]{chowdhery2022palm}
+Chowdhery, A., et al. (2022).
+\newblock PaLM: Scaling language modeling with Pathways.
+\newblock \textit{arXiv preprint arXiv:2204.02311}.
+
+\bibitem[Desai and Durrett(2020)]{desai2020calibration}
+Desai, S., Durrett, G. (2020).
+\newblock Calibration of pre-trained transformers.
+\newblock In \textit{Proceedings of EMNLP}, pp. 295--302.
+
+\bibitem[Devlin et al.(2019)]{devlin2019bert}
+Devlin, J., Chang, M.-W., Lee, K., Toutanova, K. (2019).
+\newblock BERT: Pre-training of deep bidirectional transformers for language understanding.
+\newblock In \textit{Proceedings of NAACL}, pp. 4171--4186.
+
+\bibitem[Garg and Ramakrishnan(2020)]{garg2020bae}
+Garg, S., Ramakrishnan, G. (2020).
+\newblock BAE: BERT-based adversarial examples for text classification.
+\newblock In \textit{Proceedings of EMNLP}, pp. 6174--6181.
+
+\bibitem[He et al.(2021)]{he2021deberta}
+He, P., Liu, X., Gao, J., Chen, W. (2021).
+\newblock DeBERTa: Decoding-enhanced BERT with disentangled attention.
+\newblock In \textit{Proceedings of ICLR}.
+
+\bibitem[Jawahar et al.(2019)]{jawahar2019does}
+Jawahar, G., Sagot, B., Seddah, D. (2019).
+\newblock What does BERT learn about the structure of language?
+\newblock In \textit{Proceedings of ACL}, pp. 3651--3657.
+
+\bibitem[Khashabi et al.(2020)]{khashabi2020more}
+Khashabi, D., et al. (2020).
+\newblock More bang for your buck: Natural perturbation for robust question answering.
+\newblock In \textit{Findings of EMNLP}, pp. 163--170.
+
+\bibitem[Liu et al.(2019)]{liu2019roberta}
+Liu, Y., et al. (2019).
+\newblock RoBERTa: A robustly optimized BERT pretraining approach.
+\newblock \textit{arXiv preprint arXiv:1907.11692}.
+
+\bibitem[Lu et al.(2022)]{lu2021fantastically}
+Lu, Y., Bartolo, M., Moore, A., Riedel, S., Stenetorp, P. (2022).
+\newblock Fantastically ordered prompts and where to find them: Overcoming few-shot prompt order sensitivity.
+\newblock In \textit{Proceedings of ACL}, pp. 8086--8098.
+
+\bibitem[McCoy et al.(2019)]{mccoy2019right}
+McCoy, R.~T., Pavlick, E., Linzen, T. (2019).
+\newblock Right for the wrong reasons: Diagnosing syntactic heuristics in natural language inference.
+\newblock In \textit{Proceedings of ACL}, pp. 3428--3448.
+
+\bibitem[Niven and Kao(2019)]{niven2019probing}
+Niven, T., Kao, H.-Y. (2019).
+\newblock Probing neural network comprehension of natural language arguments.
+\newblock In \textit{Proceedings of ACL}, pp. 4658--4664.
+
+\bibitem[Ribeiro et al.(2020)]{ribeiro2020beyond}
+Ribeiro, M.~T., Wu, T., Guestrin, C., Singh, S. (2020).
+\newblock Beyond accuracy: Behavioral testing of NLP models with CheckList.
+\newblock In \textit{Proceedings of ACL}, pp. 4902--4912.
+
+\bibitem[Sheng et al.(2019)]{sheng2019woman}
+Sheng, E., Chang, K.-W., Natarajan, P., Peng, N. (2019).
+\newblock The woman worked as a babysitter: On biases in language generation.
+\newblock In \textit{Proceedings of EMNLP}, pp. 3405--3410.
+
+\bibitem[Tenney et al.(2019)]{tenney2019bert}
+Tenney, I., Das, D., Pavlick, E. (2019).
+\newblock BERT rediscovers the classical NLP pipeline.
+\newblock In \textit{Proceedings of ACL}, pp. 4593--4601.
+
+\bibitem[Touvron et al.(2023)]{touvron2023llama}
+Touvron, H., et al. (2023).
+\newblock LLaMA: Open and efficient foundation language models.
+\newblock \textit{arXiv preprint arXiv:2302.13971}.
+
+\bibitem[Wei et al.(2022)]{wei2022chain}
+Wei, J., et al. (2022).
+\newblock Chain-of-thought prompting elicits reasoning in large language models.
+\newblock In \textit{Advances in NeurIPS}, Vol. 35.
+
+\bibitem[Williams et al.(2018)]{williams2018broad}
+Williams, A., Nangia, N., Bowman, S. (2018).
+\newblock A broad-coverage challenge corpus for sentence understanding through inference.
+\newblock In \textit{Proceedings of NAACL}, pp. 1112--1122.
+
+\bibitem[Wolf et al.(2020)]{wolf2020transformers}
+Wolf, T., et al. (2020).
+\newblock Transformers: State-of-the-art natural language processing.
+\newblock In \textit{Proceedings of EMNLP: System Demonstrations}, pp. 38--45.
+
+\bibitem[Yin et al.(2019)]{yin2019benchmarking}
+Yin, W., Hay, J., Roth, D. (2019).
+\newblock Benchmarking zero-shot text classification: Datasets, evaluation and entailment approach.
+\newblock In \textit{Proceedings of EMNLP}, pp. 3914--3923.
+
+\bibitem[Zhao et al.(2021)]{zhao2021calibrate}
+Zhao, Z., Wallace, E., Feng, S., Klein, D., Singh, S. (2021).
+\newblock Calibrate before use: Improving few-shot performance of language models.
+\newblock In \textit{Proceedings of ICML}, pp. 12697--12706.
+
+\end{thebibliography}
+\endgroup
+
+%-----------------------------------------------------------------------
+\appendix
+%-----------------------------------------------------------------------
+
+\section{Dataset Examples}
+\label{app:dataset}
+
+Representative paraphrase groups illustrating each transformation type and both label classes.
+
+\paragraph{Group 2 (Phishing --- Syntactic Restructuring).}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+  \item ``We have detected unusual activity on your account. Verify your identity now.''
+  \item ``Unusual activity has been detected on your account. Your identity must be verified now.''
+  \item ``Your account has had unusual activity detected. Now verify who you are.''
+\end{itemize}
+
+\paragraph{Group 6 (Phishing --- Manual Rewriting, inconsistent for BART/RoBERTa/DistilBART; labels shown are BART's and RoBERTa's).}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+  \item ``Action required: Your PayPal account has been limited. Please verify your information.'' $[\textsc{phishing}\ \cmark]$
+  \item ``Important notice: Limitations have been placed on your PayPal account. Verification of your information is needed.'' $[\textsc{legitimate}\ \xmark]$
+  \item ``Your PayPal account is now limited and requires your attention. Please confirm your details to continue.'' $[\textsc{legitimate}\ \xmark]$
+\end{itemize}
+
+\paragraph{Group 31 (Legitimate --- Synonym Substitution).}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+  \item ``Thank you for your order. It will arrive in 3--5 days.''
+  \item ``We appreciate your purchase. Delivery will take 3--5 days.''
+  \item ``Your order is confirmed and will arrive within a few days.''
+\end{itemize}
+
+\paragraph{Group 32 (Legitimate --- Syntactic Restructuring).}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+  \item ``The meeting is scheduled for Friday at 2pm.''
+  \item ``Friday at 2pm is when the meeting is scheduled.''
+  \item ``The meeting will take place at 2pm on Friday.''
+\end{itemize}
+
+\section{Classification Call}
+\label{app:prompt}
+
+All 720 classifications used the same Hugging Face pipeline call, with the message text as the input sequence and the pipeline's default hypothesis template (``This example is \{\}.''):
+
+\begin{quote}
+\small\tt
+clf = pipeline("zero-shot-classification", model=MODEL\_ID)\\[2pt]
+out = clf(text, candidate\_labels=["phishing", "legitimate"], multi\_label=False)\\[2pt]
+prediction = out["labels"][0]
+\end{quote}
+
+\section{Per-Model Inconsistent Groups: Detailed Breakdown}
+\label{app:inconsistent}
+
+\begin{table}[h]
+\centering
+\small
+\caption{Inconsistent groups by model with label class and paraphrase type.}
+\label{tab:inconsistent_detail}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{llll}
+\toprule
+\textbf{Model} & \textbf{Group ID} & \textbf{True Label} & \textbf{Type} \\
+\midrule
+\multirow{6}{*}{BART}
+  & 6  & Phishing   & Manual \\
+  & 13 & Phishing   & Syntactic \\
+  & 16 & Phishing   & Manual \\
+  & 17 & Phishing   & Synonym \\
+  & 19 & Phishing   & Manual \\
+  & 49 & Phishing   & Manual \\
+\midrule
+\multirow{9}{*}{RoBERTa}
+  & 2  & Phishing   & Syntactic \\
+  & 6  & Phishing   & Manual \\
+  & 9  & Phishing   & Manual \\
+  & 13 & Phishing   & Syntactic \\
+  & 16 & Phishing   & Manual \\
+  & 17 & Phishing   & Synonym \\
+  & 19 & Phishing   & Manual \\
+  & 43 & Phishing   & Manual \\
+  & 49 & Phishing   & Manual \\
+\midrule
+\multirow{11}{*}{DeBERTa-v3}
+  & 5  & Phishing   & Syntactic \\
+  & 9  & Phishing   & Manual \\
+  & 13 & Phishing   & Syntactic \\
+  & 20 & Phishing   & Manual \\
+  & 34 & Legitimate & Synonym \\
+  & 38 & Legitimate & Manual \\
+  & 39 & Legitimate & Synonym \\
+  & 43 & Phishing   & Manual \\
+  & 53 & Legitimate & Manual \\
+  & 59 & Legitimate & Manual \\
+  & 60 & Legitimate & Synonym \\
+\midrule
+\multirow{5}{*}{DistilBART}
+  & 2  & Phishing   & Syntactic \\
+  & 6  & Phishing   & Manual \\
+  & 13 & Phishing   & Syntactic \\
+  & 17 & Phishing   & Synonym \\
+  & 19 & Phishing   & Manual \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}
